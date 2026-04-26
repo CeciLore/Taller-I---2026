@@ -16,39 +16,52 @@
 <body>
 
     <!-- NAVBAR MEJORADA -->
-    <header class="navbar navbar-expand-lg sticky-top" style="padding: 1.2rem 5%;">
+    <header class="navbar navbar-expand-lg sticky-top bg-white shadow-sm" style="padding: 0.4rem 1%;">
+    <div class="container-fluid"> 
+        <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+            <img src="{{ asset('img/Picky.jpg') }}" alt="Logo" class="logo-img" style="height: 35px;">
+            <span class="section-title ms-2" style="color: var(--brand-purple); font-size: 1.15rem; font-weight: bold;">Picky</span>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                <img src="{{ asset('img/Picky.jpg') }}" alt="Logo" class="logo-img" style="height: 50px;">
-                <span class="section-title ms-2" style="color: var(--brand-purple); font-size: 1.5rem;">Picky</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-           <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                     <li class="nav-item">
-                          <!-- Usamos una validación doble para asegurar el Inicio -->
-                             <a class="nav-link {{ (Request::is('/') || Request::is('principal')) ? 'active' : '' }}" href="{{ url('/') }}">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link {{ Request::is('quienessomos') ? 'active' : '' }}" href="{{ url('/quienessomos') }}">Quiénes Somos</a>
-                     </li>
-                   <li class="nav-item">
-                           <a class="nav-link {{ Request::is('comercializacion') ? 'active' : '' }}" href="{{ url('/comercializacion') }}">Comercialización</a>
-                   </li>
-                   <li class="nav-item">
-                         <a class="nav-link {{ Request::is('contacto') ? 'active' : '' }}" href="{{ url('/contacto') }}">Contacto</a>
-                    </li>
-                  <li class="nav-item">
-                         <a class="nav-link {{ Request::is('terminos') ? 'active' : '' }}" href="{{ url('/terminos') }}">Términos</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center" style="font-size: 0.85rem; gap: 2px;">
+                <li class="nav-item">
+                    <a class="nav-link px-2 {{ (Request::is('/') || Request::is('principal')) ? 'active' : '' }}" href="{{ url('/') }}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2 {{ Request::is('quienessomos') ? 'active' : '' }}" href="{{ url('/quienessomos') }}">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2 {{ Request::is('comercializacion') ? 'active' : '' }}" href="{{ url('/comercializacion') }}">Ventas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2 {{ Request::is('contacto') ? 'active' : '' }}" href="{{ url('/contacto') }}">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2 {{ Request::is('terminos') ? 'active' : '' }}" href="{{ url('/terminos') }}">Términos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-2 {{ Request::is('consultas') ? 'active' : '' }}" href="{{ url('/consultas') }}">Consultas</a>
+                </li>
 
+                <li class="nav-item ms-lg-2">
+                    <a class="nav-link fw-bold px-2" href="{{ url('/login') }}" style="color: var(--brand-purple);">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-dark text-white fw-bold ms-lg-1" 
+                       href="{{ url('/registro') }}" 
+                       style="border-radius: 8px; font-size: 0.8rem; padding: 4px 12px;">
+                       Registrarse
+                    </a>
+                </li>
+            </ul>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- CONTENIDO DINÁMICO -->
     <main>
@@ -57,31 +70,34 @@
 
     <!-- FOOTER ÚNICO -->
     <footer class="custom-footer">
-        <div class="container text-center">
-            <h2 class="footer-title section-title">Picky Petshop</h2>
-            <p class="slogan-footer">Elegido por humanos, aprobado por mascotas.</p>
-            
-            <div class="socials my-4 d-flex align-items-center gap-2">
-    <a href="#" class="social-link">
-        <img src="{{ asset('img/instaicon.jpg') }}" alt="Instagram" style="width: 50px; height: 50px; object-fit: contain;">
-    </a>
-    <a href="#" class="social-link">
-        <img src="{{ asset('img/tiktokicon.jpg') }}" alt="TikTok" style="width: 50px; height: 50px; object-fit: contain;">
-    </a>
-    <a href="#" class="social-link">
-        <img src="{{ asset('img/faceicon.jpg') }}" alt="Facebook" style="width: 50px; height: 50px; object-fit: contain;">
-    </a>
-    <a href="#" class="social-link">
-        <img src="{{ asset('img/wpicon.jpg') }}" alt="WhatsApp" style="width: 50px; height: 50px; object-fit: contain;">
-    </a>
-</div>
+    <div class="container text-center">
+        <h2 class="footer-title section-title">Picky Petshop</h2>
+        <p class="slogan-footer">Elegido por humanos, aprobado por mascotas.</p>
+        
+        <div class="socials my-4 d-flex align-items-center gap-2">
+            <a href="https://www.instagram.com/" target="_blank" class="social-link">
+                <img src="{{ asset('img/instaicon.jpg') }}" alt="Instagram" style="width: 50px; height: 50px; object-fit: contain;">
+            </a>
 
-            <hr class="custom-hr mx-auto">
-            <p class="small mb-0 opacity-75">
-                &copy; 2026 <strong>Picky PetShop</strong>. Desarrollado para el bienestar animal.
-            </p>
+            <a href="https://www.tiktok.com/" target="_blank" class="social-link">
+                <img src="{{ asset('img/tiktokicon.jpg') }}" alt="TikTok" style="width: 50px; height: 50px; object-fit: contain;">
+            </a>
+
+            <a href="https://www.facebook.com/" target="_blank" class="social-link">
+                <img src="{{ asset('img/faceicon.jpg') }}" alt="Facebook" style="width: 50px; height: 50px; object-fit: contain;">
+            </a>
+
+            <a href="https://web.whatsapp.com/" target="_blank" class="social-link">
+                <img src="{{ asset('img/wpicon.jpg') }}" alt="WhatsApp" style="width: 30px; height: 30px; object-fit: contain;">
+            </a>
         </div>
-    </footer>
+
+        <hr class="custom-hr mx-auto">
+        <p class="small mb-0 opacity-75">
+            &copy; 2026 <strong>Picky PetShop</strong>. Desarrollado para el bienestar animal.
+        </p>
+    </div>
+</footer>
 
     <!-- Bootstrap JS Local -->
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
