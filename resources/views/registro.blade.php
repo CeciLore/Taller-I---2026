@@ -1,47 +1,132 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid" style="background: var(--brand-purple); min-height: 100vh; padding: 100px 0;">
-    <div class="row justify-content-center mx-0">
-        <div class="col-md-5">
-            <div class="card p-4 p-md-5 bg-white" style="border-radius: 30px; border: 4px solid #000; box-shadow: 15px 15px 0px #000;">
-                <div class="text-center mb-4">
-                    <h2 class="fw-bold text-dark">¡ÚNETE A LA MANADA! 🐾</h2>
-                    <p class="text-muted">Crea tu cuenta para disfrutar de beneficios exclusivos.</p>
-                </div>
+<div class="hero hero-register">
+    <div class="hero-content text-center">
+        <h1>¡Únete a la manada!</h1>
+        <span class="slogan d-block mb-4">Crea tu cuenta para disfrutar de beneficios exclusivos en Picky Petshop.</span>
+    </div>
+</div>
 
-                <form action="#" method="POST">
-                    @csrf
+<main class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <section class="card card-register shadow-lg border-0 p-4">
+                <h2 class="text-center mb-4 fw-bold title-brand">Crear Cuenta 🐾</h2>
+                
+                <form action="{{ url('/registro') }}" method="POST" id="formRegistro" class="needs-validation" novalidate>
+                    @csrf 
+
                     <div class="mb-3">
-                        <label class="fw-bold mb-1 text-dark">NOMBRE COMPLETO</label>
-                        <input type="text" name="name" class="form-control border-2" style="border-color: #000; height: 45px;" placeholder="Ej: Ana López">
+                        <label for="name" class="form-label fw-bold">Nombre Completo</label>
+                        <div class="input-group">
+                            <span class="input-group-text icon-register-box">
+                                <i class="bi bi-person-fill text-muted"></i>
+                            </span>
+                            <input type="text" name="name" class="form-control input-register-right" id="name" placeholder="Ej: Ana López" required pattern=".*\S.*">
+                            <div class="invalid-feedback">El nombre no puede estar vacío ni ser solo espacios.</div>
+                        </div>
                     </div>
 
                     <div class="mb-3">
-                        <label class="fw-bold mb-1 text-dark">EMAIL</label>
-                        <input type="email" name="email" class="form-control border-2" style="border-color: #000; height: 45px;" placeholder="ana@ejemplo.com">
+                        <label for="email" class="form-label fw-bold">Correo Electrónico</label>
+                        <div class="input-group">
+                            <span class="input-group-text icon-register-box">
+                                <i class="bi bi-envelope-fill text-muted"></i>
+                            </span>
+                            <input type="email" name="email" class="form-control input-register-right" id="email" placeholder="tu@ejemplo.com" required>
+                            <div class="invalid-feedback">Necesitamos un email válido.</div>
+                        </div>
                     </div>
 
                     <div class="mb-3">
-                        <label class="fw-bold mb-1 text-dark">CONTRASEÑA</label>
-                        <input type="password" name="password" class="form-control border-2" style="border-color: #000; height: 45px;">
+                        <label for="password" class="form-label fw-bold">Contraseña</label>
+                        <div class="input-group">
+                            <span class="input-group-text icon-register-box">
+                                <i class="bi bi-lock-fill text-muted"></i>
+                            </span>
+                            <input type="password" name="password" id="password" class="form-control input-register-right" placeholder="••••••••" required pattern=".*\S.*">
+                            <div class="invalid-feedback">La contraseña es obligatoria (sin espacios vacíos).</div>
+                        </div>
                     </div>
 
                     <div class="mb-4">
-                        <label class="fw-bold mb-1 text-dark">CONFIRMAR CONTRASEÑA</label>
-                        <input type="password" name="password_confirmation" class="form-control border-2" style="border-color: #000; height: 45px;">
+                        <label for="password_confirmation" class="form-label fw-bold">Confirmar Contraseña</label>
+                        <div class="input-group">
+                            <span class="input-group-text icon-register-box">
+                                <i class="bi bi-shield-lock-fill text-muted"></i>
+                            </span>
+                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-register-right" placeholder="••••••••" required pattern=".*\S.*">
+                            <div class="invalid-feedback" id="confirmFeedback">Las contraseñas deben coincidir y no ser solo espacios.</div>
+                        </div>
                     </div>
 
-                    <button type="submit" class="btn btn-warning btn-lg w-100 fw-bold" style="border: 3px solid #000;">
-                        REGISTRARME
-                    </button>
+                    <div class="d-grid gap-2">
+                        <button type="submit" id="btnRegistro" class="btn btn-register-submit btn-lg text-dark py-3 fw-bold shadow-sm">
+                            REGISTRARME 🐶
+                        </button>
+                    </div>
 
-                    <div class="text-center mt-4">
-                        <p class="mb-0">¿Ya tienes cuenta? <a href="/login" class="fw-bold text-primary">Inicia sesión aquí</a></p>
+                    <div id="alertaExito" class="alert alert-register-success mt-4 d-none text-center shadow-sm" role="alert">
+                        <i class="bi bi-check-circle-fill me-2"></i>
+                        <strong>¡Registro exitoso!</strong> Bienvenida a Picky Petshop.
                     </div>
                 </form>
-            </div>
+            </section>
         </div>
     </div>
-</div>
+</main>
+
+<script>
+    (function () {
+        'use strict'
+        const form = document.getElementById('formRegistro');
+        const nameInput = document.getElementById('name');
+        const passInput = document.getElementById('password');
+        const confirmInput = document.getElementById('password_confirmation');
+
+        form.addEventListener('submit', function (event) {
+            let isValid = true;
+            const isEmptyOrSpaces = (input) => input.value.trim().length === 0;
+
+            if (isEmptyOrSpaces(nameInput)) {
+                nameInput.setCustomValidity("Invalido");
+                isValid = false;
+            } else { nameInput.setCustomValidity(""); }
+
+            if (isEmptyOrSpaces(passInput)) {
+                passInput.setCustomValidity("Invalido");
+                isValid = false;
+            } else { passInput.setCustomValidity(""); }
+
+            if (isEmptyOrSpaces(confirmInput) || passInput.value !== confirmInput.value) {
+                confirmInput.setCustomValidity("Invalido");
+                isValid = false;
+            } else { confirmInput.setCustomValidity(""); }
+
+            if (!form.checkValidity() || !isValid) {
+                event.preventDefault();
+                event.stopPropagation();
+            } else {
+                event.preventDefault();
+                const btn = document.getElementById('btnRegistro');
+                btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Procesando...';
+                btn.disabled = true;
+
+                setTimeout(() => {
+                    document.getElementById('alertaExito').classList.remove('d-none');
+                    btn.innerHTML = '¡CUENTA CREADA! ✨';
+                    btn.style.backgroundColor = '#2ecc71';
+                    btn.style.color = 'white';
+                    btn.style.borderColor = '#155724';
+                }, 1500);
+            }
+            form.classList.add('was-validated');
+        }, false);
+
+        [nameInput, passInput, confirmInput].forEach(input => {
+            input.addEventListener('input', () => input.setCustomValidity(""));
+        });
+    })();
+</script>
 @endsection

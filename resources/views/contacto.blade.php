@@ -21,50 +21,52 @@
                     <ul class="list-unstyled small mb-0">
                         <li class="mb-2"><strong>Titular:</strong> Laura Rodríguez</li>
                         <li class="mb-2"><strong>Razón Social:</strong> Picky PetShop S.R.L.</li>
-                        <li class="mb-2"><strong>Domicilio Legal:</strong> La Rioja 1345, CP 3400, Corrientes, Argentina</li>
                         <li class="mb-2"><strong>CUIT:</strong> 30-71234567-0</li>
-                        <li class="mb-2"><strong>Teléfono Comercial:</strong> (0379) 444-5566</li>
-                        <li class="mb-0"><strong>Horario de atención:</strong> Lunes a Viernes 09:00 a 18:00hs</li>
                     </ul>
                 </div>
             </div>
             
             <div class="col-lg-7">
-                <form id="formContacto" class="contact-form p-4 p-md-5 bg-white shadow-lg" style="border-radius: 30px; border: 4px solid #000; box-shadow: 15px 15px 0px #000 !important;">
-                    <h3 class="fw-bold text-dark mb-4 text-center">CUESTIONARIO DE CONSULTA</h3>
+                <form action="{{ url('/contacto') }}" method="POST" id="formContacto" class="contact-form p-4 p-md-5 bg-white shadow-lg needs-validation" novalidate style="border-radius: 30px; border: 4px solid #000; box-shadow: 15px 15px 0px #000 !important;">
+                    @csrf <h3 class="fw-bold text-dark mb-4 text-center">CUESTIONARIO</h3>
                     
                     <div class="mb-3">
                         <label class="fw-bold mb-2 text-dark">NOMBRE COMPLETO</label>
-                        <input type="text" class="form-control border-2 shadow-none" placeholder="Ingresa tu nombre y apellido" required style="border-color: #000; height: 50px;">
+                        <input type="text" name="nombre" class="form-control border-2 shadow-none" placeholder="Ingresa tu nombre y apellido" required style="border-color: #000; height: 50px;">
+                        <div class="invalid-feedback fw-bold">Por favor, dinos tu nombre.</div>
                     </div>
 
                     <div class="mb-3">
                         <label class="fw-bold mb-2 text-dark">EMAIL DE CONTACTO</label>
-                        <input type="email" class="form-control border-2 shadow-none" placeholder="tu-email@correo.com" required style="border-color: #000; height: 50px;">
+                        <input type="email" name="email" class="form-control border-2 shadow-none" placeholder="tu-email@correo.com" required style="border-color: #000; height: 50px;">
+                        <div class="invalid-feedback fw-bold">Necesitamos un email válido para responderte.</div>
                     </div>
 
                     <div class="mb-3">
                         <label class="fw-bold mb-2 text-dark">TELÉFONO / CELULAR</label>
-                        <input type="tel" class="form-control border-2 shadow-none" placeholder="Ej: +54 379 4000000" style="border-color: #000; height: 50px;">
+                        <input type="tel" name="telefono" class="form-control border-2 shadow-none" placeholder="Ej: +54 379 4000000" required style="border-color: #000; height: 50px;">
+                        <div class="invalid-feedback fw-bold">El teléfono es obligatorio.</div>
                     </div>
 
                     <div class="mb-3">
                         <label class="fw-bold mb-2 text-dark">ÁREA DE COMUNICACIÓN</label>
-                        <select class="form-select border-2 shadow-none" style="border-color: #000; height: 50px;" required>
+                        <select name="area" class="form-select border-2 shadow-none" style="border-color: #000; height: 50px;" required>
                             <option value="" selected disabled>¿Con quién deseas hablar?</option>
                             <option value="ventas">Atención al Cliente / Ventas</option>
                             <option value="legal">Consultas Administrativas</option>
                             <option value="soporte">Soporte y Reclamos</option>
                         </select>
+                        <div class="invalid-feedback fw-bold">Selecciona un área de contacto.</div>
                     </div>
 
                     <div class="mb-3">
                         <label class="fw-bold mb-2 text-dark">MENSAJE PARA LA EMPRESA</label>
-                        <textarea class="form-control border-2 shadow-none" rows="4" placeholder="Escribe aquí tu mensaje detallado..." required style="border-color: #000;"></textarea>
+                        <textarea name="mensaje" class="form-control border-2 shadow-none" rows="4" placeholder="Escribe aquí tu mensaje detallado..." required style="border-color: #000;"></textarea>
+                        <div class="invalid-feedback fw-bold">No olvides escribir tu consulta.</div>
                     </div>
                     
                     <button type="submit" id="btnEnviar" class="btn btn-warning btn-lg w-100 py-3 mt-3 fw-bold shadow-none" style="border: 4px solid #000; transition: 0.3s; font-size: 1.2rem;">
-                        ENVIAR COMUNICACIÓN
+                        ENVIAR
                     </button>
 
                     <div id="mensajeExito" class="mt-4 text-center d-none" style="background: #2ecc71; color: white; padding: 20px; border-radius: 20px; border: 3px solid #000; box-shadow: 5px 5px 0px #000;">
@@ -78,22 +80,37 @@
 </section>
 
 <script>
-    document.getElementById('formContacto').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const btn = document.getElementById('btnEnviar');
-        const mensaje = document.getElementById('mensajeExito');
+    (function () {
+        'use strict'
+        var form = document.getElementById('formContacto')
 
-        btn.innerHTML = 'ENVIANDO...';
-        btn.disabled = true;
+        form.addEventListener('submit', function (event) {
+            // Si el formulario no es válido, detenemos el envío y mostramos errores
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            } else {
+                // Si es válido, simulamos el envío (lo que ya tenías)
+                event.preventDefault()
+                const btn = document.getElementById('btnEnviar');
+                const mensaje = document.getElementById('mensajeExito');
 
-        setTimeout(() => {
-            btn.innerHTML = 'MENSAJE RECIBIDO ✅';
-            btn.style.background = '#2ecc71'; 
-            btn.style.color = 'white';
-            mensaje.classList.remove('d-none');
-            this.reset();
-        }, 1000);
-    });
+                btn.innerHTML = 'ENVIANDO...';
+                btn.disabled = true;
+
+                setTimeout(() => {
+                    btn.innerHTML = 'MENSAJE RECIBIDO ✅';
+                    btn.style.background = '#2ecc71'; 
+                    btn.style.color = 'white';
+                    mensaje.classList.remove('d-none');
+                    form.reset();
+                    form.classList.remove('was-validated'); // Limpia los colores de validación
+                }, 1000);
+            }
+
+            form.classList.add('was-validated')
+        }, false)
+    })()
 </script>
 
 @endsection

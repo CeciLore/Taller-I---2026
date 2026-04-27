@@ -446,5 +446,200 @@ nav a:hover { color: var(--brand-pink); }
     animation: huellaLatido 0.8s infinite;
 }
 
+/* Botón Amarillo Picky */
+.btn-picky-yellow {
+    background-color: #FFC107;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
 
+.btn-picky-yellow:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Paginación activa con el color de marca */
+.pagination .page-link.active {
+    background-color: var(--brand-purple) !important;
+    color: white !important;
+}
+
+.pagination .page-link {
+    cursor: pointer;
+    padding: 10px 25px;
+    font-weight: bold;
+    color: var(--brand-purple);
+}
+
+/* --- VISTA CONSULTAS --- */
+
+.hero-consultas {
+    min-height: 40vh;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-consultas {
+    border-radius: 20px !important;
+}
+
+.title-purple {
+    color: var(--brand-purple); /* Asegúrate de tener definida esta variable */
+}
+
+.form-input-custom {
+    border: 2px solid #dee2e6 !important;
+    border-radius: 10px !important;
+}
+
+.alert-custom {
+    border-radius: 10px !important;
+}
+
+/* Botón Enviar */
+.btn-submit-consultas {
+    border-radius: 12px !important;
+    border: 2px solid #000 !important;
+    background-color: #ffc107 !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-submit-consultas:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+    background-color: #eab000 !important;
+}
+
+/* Validaciones */
+.was-validated .form-control:invalid, 
+.was-validated .form-select:invalid {
+    border-color: #dc3545 !important;
+}
+
+.was-validated .form-control:valid, 
+.was-validated .form-select:valid {
+    border-color: #198754 !important;
+}
+
+/* --- VISTA LOGIN --- */
+
+.hero-login {
+    min-height: 40vh;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-login {
+    border-radius: 25px !important;
+}
+
+.title-brand {
+    color: var(--brand-purple);
+}
+
+.link-brand {
+    color: var(--brand-purple);
+    text-decoration: none;
+}
+
+/* Inputs y Grupos */
+.icon-login-box {
+    background-color: #ffffff !important;
+    border: 2px solid #dee2e6 !important;
+    border-right: 0 !important;
+    border-radius: 10px 0 0 10px !important;
+}
+
+.input-login-right {
+    border: 2px solid #dee2e6 !important;
+    border-left: 0 !important;
+    border-radius: 0 10px 10px 0 !important;
+}
+
+/* Botón de Ingreso */
+.btn-login-submit {
+    border-radius: 15px !important;
+    border: 2px solid #000 !important;
+    background-color: #ffc107 !important; /* Color warning */
+    transition: all 0.3s ease !important;
+}
+
+.btn-login-submit:hover {
+    transform: scale(1.02);
+    background-color: #ffca2c !important;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1) !important;
+}
+
+/* Alerta de éxito */
+.alert-login-success {
+    border-radius: 15px !important;
+    border: 2px solid #155724 !important;
+    background-color: #d4edda !important;
+    color: #155724 !important;
+}
+
+/* Validaciones consistentes */
+.was-validated .form-control:invalid {
+    border-color: #dc3545 !important;
+}
+.was-validated .form-control:valid {
+    border-color: #198754 !important;
+}
+
+/* --- VISTA REGISTRO --- */
+
+.hero-register {
+    min-height: 40vh;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-register {
+    border-radius: 25px !important;
+}
+
+/* Iconos y campos de texto */
+.icon-register-box {
+    background-color: #ffffff !important;
+    border: 2px solid #dee2e6 !important;
+    border-right: 0 !important;
+    border-radius: 10px 0 0 10px !important;
+}
+
+.input-register-right {
+    border: 2px solid #dee2e6 !important;
+    border-left: 0 !important;
+    border-radius: 0 10px 10px 0 !important;
+}
+
+/* Botón de Registro */
+.btn-register-submit {
+    border-radius: 15px !important;
+    border: 2px solid #000 !important;
+    background-color: #ffc107 !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-register-submit:hover {
+    transform: scale(1.02);
+    background-color: #ffca2c !important;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1) !important;
+}
+
+/* Alerta de éxito */
+.alert-register-success {
+    border-radius: 15px !important;
+    border: 2px solid #155724 !important;
+    background-color: #d4edda !important;
+    color: #155724 !important;
+}
 

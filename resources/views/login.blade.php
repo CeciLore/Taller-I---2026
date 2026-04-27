@@ -1,38 +1,107 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid" style="background: var(--brand-purple); min-height: 100vh; padding: 100px 0;">
-    <div class="row justify-content-center mx-0">
-        <div class="col-md-4">
-            <div class="card p-4 p-md-5 bg-white" style="border-radius: 30px; border: 4px solid #000; box-shadow: 15px 15px 0px #000;">
-                <div class="text-center mb-4">
-                    <h2 class="fw-bold text-dark">¡HOLA DE NUEVO! 👋</h2>
-                    <p class="text-muted">Ingresa tus datos para continuar.</p>
-                </div>
+<div class="hero hero-login">
+    <div class="hero-content text-center">
+        <h1>Bienvenido de nuevo</h1>
+        <span class="slogan d-block mb-4">Ingresa a tu cuenta de Picky Petshop.</span>
+    </div>
+</div>
 
-                <form action="#" method="POST">
-                    @csrf
+<main class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <section class="card card-login shadow-lg border-0 p-4">
+                <h2 class="text-center mb-4 fw-bold title-brand">Iniciar Sesión 🐾</h2>
+                
+                <form action="{{ url('/login') }}" method="POST" id="formLogin" class="needs-validation" novalidate>
+                    @csrf 
                     <div class="mb-3">
-                        <label class="fw-bold mb-1 text-dark">CORREO ELECTRÓNICO</label>
-                        <input type="email" name="email" class="form-control border-2" style="border-color: #000; height: 45px;">
+                        <label for="email" class="form-label fw-bold">Correo Electrónico</label>
+                        <div class="input-group">
+                            <span class="input-group-text icon-login-box">
+                                <i class="bi bi-envelope-fill text-muted"></i>
+                            </span>
+                            <input type="email" class="form-control input-login-right" id="email" name="email" placeholder="tu@ejemplo.com" required>
+                            <div class="invalid-feedback">Necesitamos un email válido.</div>
+                        </div>
                     </div>
 
                     <div class="mb-4">
-                        <label class="fw-bold mb-1 text-dark">CONTRASEÑA</label>
-                        <input type="password" name="password" class="form-control border-2" style="border-color: #000; height: 45px;">
+                        <label for="password" class="form-label fw-bold">Contraseña</label>
+                        <div class="input-group">
+                            <span class="input-group-text icon-login-box">
+                                <i class="bi bi-lock-fill text-muted"></i>
+                            </span>
+                            <input type="password" class="form-control input-login-right" id="password" name="password" placeholder="••••••••" required pattern=".*\S.*">
+                            <div class="invalid-feedback">La contraseña es obligatoria y no puede contener solo espacios.</div>
+                        </div>
                     </div>
 
-                    <button type="submit" class="btn btn-purple-gradient text-white btn-lg w-100 fw-bold mb-3" style="border: 3px solid #000;">
-                        INGRESAR
-                    </button>
+                    <div class="d-grid gap-2">
+                        <button type="submit" id="btnLogin" class="btn btn-login-submit btn-lg text-dark py-3 fw-bold shadow-sm">
+                            INGRESAR A MI CUENTA 🐶
+                        </button>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <a href="#" class="text-muted small">¿Olvidaste tu contraseña?</a>
+                    </div>
+
+                    <hr class="my-4">
 
                     <div class="text-center">
-                        <a href="#" class="small text-muted d-block mb-2">¿Olvidaste tu contraseña?</a>
-                        <p class="mb-0">¿No tienes cuenta? <a href="/registro" class="fw-bold text-primary">Regístrate</a></p>
+                        <p class="mb-0">¿No tienes cuenta? <a href="{{ url('/registro') }}" class="fw-bold link-brand">Regístrate</a></p>
+                    </div>
+
+                    <div id="alertaExito" class="alert alert-login-success mt-4 d-none text-center shadow-sm" role="alert">
+                        <i class="bi bi-check-circle-fill me-2"></i>
+                        <strong>¡Inicio de sesión exitoso!</strong> Redirigiendo...
                     </div>
                 </form>
-            </div>
+            </section>
         </div>
     </div>
-</div>
+</main>
+
+<script>
+    (function () {
+        'use strict'
+        const form = document.getElementById('formLogin');
+
+        form.addEventListener('submit', function (event) {
+            const passwordInput = document.getElementById('password');
+            
+            if (!form.checkValidity() || passwordInput.value.trim().length === 0) {
+                event.preventDefault();
+                event.stopPropagation();
+                
+                if(passwordInput.value.trim().length === 0) {
+                    passwordInput.setCustomValidity("Invalido");
+                }
+            } else {
+                passwordInput.setCustomValidity("");
+                event.preventDefault();
+                const btn = document.getElementById('btnLogin');
+                const alerta = document.getElementById('alertaExito');
+
+                btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Validando...';
+                btn.disabled = true;
+
+                setTimeout(() => {
+                    alerta.classList.remove('d-none');
+                    btn.innerHTML = '¡BIENVENIDO! ✨';
+                    btn.style.backgroundColor = '#2ecc71';
+                    btn.style.color = 'white';
+                    btn.style.borderColor = '#155724';
+                }, 1500);
+            }
+            form.classList.add('was-validated');
+        }, false);
+
+        document.getElementById('password').addEventListener('input', function() {
+            this.setCustomValidity("");
+        });
+    })();
+</script>
 @endsection

@@ -28,73 +28,73 @@
             <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
                 <div class="row g-4 text-center">
                     <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="card h-100 border-0 shadow-sm">
+                        <article class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
                             <img src="{{ asset('img/pretal.jpg') }}" class="card-img-top" alt="Pretal" style="height: 250px; object-fit: cover;">
-                            <div class="card-body">
+                            <div class="card-body d-flex flex-column">
                                 <h3>Pretal "Neon"</h3>
-                                <p class="text-muted">Máxima visibilidad.</p>
-                                <p class="h4 text-primary">$15.500</p>
-                                <button class="btn btn-purple-gradient btn-sm text-white">Agregar al carrito</button>
+                                <p class="text-muted flex-grow-1">Máxima visibilidad.</p>
+                                <p class="h4 text-primary mt-2">$15.500</p>
+                                <button class="btn btn-picky-yellow btn-sm fw-bold btn-agregar-carrito">Agregar al carrito</button>
                             </div>
                         </article>
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="card h-100 border-0 shadow-sm">
-                            <img src="{{ asset('img/alimento.jpg') }}" class="card-img-top" alt="Alimento" style="height: 250px; object-fit: cover;">
-                            <div class="card-body">
+                        <article class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                            <img src="{{ asset('img/alimentopremium.jpg') }}" class="card-img-top" alt="Alimento" style="height: 250px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
                                 <h3>Alimento Premium</h3>
-                                <p class="text-muted">Energía y salud.</p>
-                                <p class="h4 text-primary">$32.000</p>
-                                <button class="btn btn-purple-gradient btn-sm text-white">Agregar al carrito</button>
+                                <p class="text-muted flex-grow-1">Energía y salud.</p>
+                                <p class="h4 text-primary mt-2">$32.000</p>
+                                <button class="btn btn-picky-yellow btn-sm fw-bold btn-agregar-carrito">Agregar al carrito</button>
                             </div>
                         </article>
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="card h-100 border-0 shadow-sm">
-                            <img src="{{ asset('img/juguete.jpg') }}" class="card-img-top" alt="Mordillo" style="height: 250px; object-fit: cover;">
-                            <div class="card-body">
+                        <article class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                            <img src="{{ asset('img/mordisco.jpg') }}" class="card-img-top" alt="Mordillo" style="height: 250px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
                                 <h3>Mordillo Dental</h3>
-                                <p class="text-muted">Diversión duradera.</p>
-                                <p class="h4 text-primary">$4.500</p>
-                                <button class="btn btn-purple-gradient btn-sm text-white">Agregar al carrito</button>
+                                <p class="text-muted flex-grow-1">Diversión duradera.</p>
+                                <p class="h4 text-primary mt-2">$4.500</p>
+                                <button class="btn btn-picky-yellow btn-sm fw-bold btn-agregar-carrito">Agregar al carrito</button>
                             </div>
                         </article>
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="card h-100 border-0 shadow-sm">
-                            <img src="{{ asset('img/cama.jpg') }}" class="card-img-top" alt="Cama" style="height: 250px; object-fit: cover;">
-                            <div class="card-body">
+                        <article class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                            <img src="{{ asset('img/camadog.jpg') }}" class="card-img-top" alt="Cama" style="height: 250px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
                                 <h3>Cama Confort</h3>
-                                <p class="text-muted">El mejor descanso.</p>
-                                <p class="h4 text-primary">$21.800</p>
-                                <button class="btn btn-purple-gradient btn-sm text-white">Agregar al carrito</button>
+                                <p class="text-muted flex-grow-1">El mejor descanso.</p>
+                                <p class="h4 text-primary mt-2">$21.800</p>
+                                <button class="btn btn-picky-yellow btn-sm fw-bold btn-agregar-carrito">Agregar al carrito</button>
                             </div>
                         </article>
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="card h-100 border-0 shadow-sm">
+                        <article class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
                             <img src="{{ asset('img/rascador.jpg') }}" class="card-img-top" alt="Rascador" style="height: 250px; object-fit: cover;">
-                            <div class="card-body">
+                            <div class="card-body d-flex flex-column">
                                 <h3>Torre Rascador</h3>
-                                <p class="text-muted">Para gatos felices.</p>
-                                <p class="h4 text-primary">$25.600</p>
-                                <button class="btn btn-purple-gradient btn-sm text-white">Agregar al carrito</button>
+                                <p class="text-muted flex-grow-1">Para gatos felices.</p>
+                                <p class="h4 text-primary mt-2">$25.600</p>
+                                <button class="btn btn-picky-yellow btn-sm fw-bold btn-agregar-carrito">Agregar al carrito</button>
                             </div>
                         </article>
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="card h-100 border-0 shadow-sm">
-                            <img src="{{ asset('img/transportadora.jpg') }}" class="card-img-top" alt="Transportadora" style="height: 250px; object-fit: cover;">
-                            <div class="card-body">
+                        <article class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                            <img src="{{ asset('img/bolsatransporte.jpg') }}" class="card-img-top" alt="Transportadora" style="height: 250px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
                                 <h3>Bolso de Viaje</h3>
-                                <p class="text-muted">Viajes cómodos.</p>
-                                <p class="h4 text-primary">$18.900</p>
-                                <button class="btn btn-purple-gradient btn-sm text-white">Agregar al carrito</button>
+                                <p class="text-muted flex-grow-1">Viajes cómodos.</p>
+                                <p class="h4 text-primary mt-2">$18.900</p>
+                                <button class="btn btn-picky-yellow btn-sm fw-bold btn-agregar-carrito">Agregar al carrito</button>
                             </div>
                         </article>
                     </div>
@@ -104,20 +104,22 @@
             <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
                 <div class="row g-4 text-center">
                     <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="card h-100 border-0 shadow-sm">
-                            <img src="{{ asset('img/nuevo_producto.jpg') }}" class="card-img-top" alt="Nuevo" style="height: 250px; object-fit: cover;">
-                            <div class="card-body">
+                        <article class="card h-100 border-0 shadow-sm overflow-hidden" style="border-radius: 15px;">
+                            <img src="{{ asset('img/shampoo.jpg') }}" class="card-img-top" alt="Nuevo" style="height: 250px; object-fit: cover;">
+                            <div class="card-body d-flex flex-column">
                                 <h3>Shampoo Pet</h3>
-                                <p class="text-muted">Pelaje brillante.</p>
-                                <p class="h4 text-primary">$8.500</p>
-                                <button class="btn btn-purple-gradient btn-sm text-white">Agregar al carrito</button>
+                                <p class="text-muted flex-grow-1">Pelaje brillante.</p>
+                                <p class="h4 text-primary mt-2">$8.500</p>
+                                <button class="btn btn-picky-yellow btn-sm fw-bold btn-agregar-carrito">Agregar al carrito</button>
                             </div>
                         </article>
                     </div>
-                    </div>
+                </div>
             </div>
 
-        </div> <nav aria-label="Navegación de productos" class="mt-5">
+        </div> 
+
+        <nav aria-label="Navegación de productos" class="mt-5">
             <ul class="pagination justify-content-center border-0" id="pills-tab" role="tablist">
                 <li class="page-item" role="presentation">
                     <button class="page-link active shadow-sm border-0" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab" style="border-radius: 15px 0 0 15px;">1</button>
@@ -130,15 +132,31 @@
     </section>
 </main>
 
-<style>
-    .pagination .page-link.active {
-        background-color: var(--brand-purple) !important;
-        color: white !important;
-    }
-    .pagination .page-link {
-        cursor: pointer;
-        padding: 10px 20px;
-    }
-</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const botonesAgregar = document.querySelectorAll('.btn-agregar-carrito');
+
+        botonesAgregar.forEach(boton => {
+            boton.addEventListener('click', function() {
+                const btn = this;
+                const textoOriginal = btn.innerHTML;
+
+                btn.innerHTML = '¡Agregado! 🛒';
+                btn.classList.remove('btn-picky-yellow');
+                btn.classList.add('btn-success');
+                btn.style.color = "white";
+                btn.disabled = true;
+
+                setTimeout(() => {
+                    btn.innerHTML = textoOriginal;
+                    btn.classList.remove('btn-success');
+                    btn.classList.add('btn-picky-yellow');
+                    btn.style.color = "black";
+                    btn.disabled = false;
+                }, 1000);
+            });
+        });
+    });
+</script>
 
 @endsection
