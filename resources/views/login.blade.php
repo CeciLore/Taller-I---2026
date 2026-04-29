@@ -22,8 +22,14 @@
                             <span class="input-group-text icon-login-box">
                                 <i class="bi bi-envelope-fill text-muted"></i>
                             </span>
-                            <input type="email" class="form-control input-login-right" id="email" name="email" placeholder="tu@ejemplo.com" required>
-                            <div class="invalid-feedback">Necesitamos un email válido.</div>
+                            <input type="email" 
+                                   class="form-control input-login-right" 
+                                   id="email" 
+                                   name="email" 
+                                   placeholder="tu@ejemplo.com" 
+                                   required
+                                   oninput="this.value = this.value.replace(/\.{2,}/g, '.');">
+                            <div class="invalid-feedback">Ingresa un email válido.</div>
                         </div>
                     </div>
 
@@ -33,8 +39,15 @@
                             <span class="input-group-text icon-login-box">
                                 <i class="bi bi-lock-fill text-muted"></i>
                             </span>
-                            <input type="password" class="form-control input-login-right" id="password" name="password" placeholder="••••••••" required pattern=".*\S.*">
-                            <div class="invalid-feedback">La contraseña es obligatoria y no puede contener solo espacios.</div>
+                            <input type="password" 
+                                   class="form-control input-login-right" 
+                                   id="password" 
+                                   name="password" 
+                                   placeholder="••••••••" 
+                                   required 
+                                   pattern="^[^.]+$"
+                                   oninput="this.value = this.value.replace(/\./g, '');">
+                            <div class="invalid-feedback">La contraseña es obligatoria y no puede contener puntos.</div>
                         </div>
                     </div>
 
@@ -71,12 +84,19 @@
 
         form.addEventListener('submit', function (event) {
             const passwordInput = document.getElementById('password');
+            const emailInput = document.getElementById('email');
             
-            if (!form.checkValidity() || passwordInput.value.trim().length === 0) {
+            
+            const tienePuntos = passwordInput.value.includes('.');
+            const soloEspacios = passwordInput.value.trim().length === 0;
+
+            if (!form.checkValidity() || soloEspacios || tienePuntos) {
                 event.preventDefault();
                 event.stopPropagation();
                 
-                if(passwordInput.value.trim().length === 0) {
+                if (tienePuntos) {
+                    passwordInput.setCustomValidity("No se permiten puntos");
+                } else if (soloEspacios) {
                     passwordInput.setCustomValidity("Invalido");
                 }
             } else {
@@ -99,8 +119,10 @@
             form.classList.add('was-validated');
         }, false);
 
-        document.getElementById('password').addEventListener('input', function() {
-            this.setCustomValidity("");
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', function() {
+                this.setCustomValidity("");
+            });
         });
     })();
 </script>

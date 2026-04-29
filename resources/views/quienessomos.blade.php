@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<!-- Hero de la sección con corte diagonal suave -->
+
 <div class="hero" style="min-height: 50vh; clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);">
     <div class="hero-content">
         <h1>Nuestra Historia</h1>
@@ -10,7 +10,7 @@
 </div>
 
 <main class="container my-5 py-4">
-    <!-- Trayectoria -->
+   
     <div class="row align-items-center mb-5">
         <div class="col-md-6">
             <h2 class="section-title text-primary" style="font-size: 3rem;">Nuestra Trayectoria</h2>
@@ -24,10 +24,10 @@
         </div>
     </div>
 
-    <!-- Sección Equipo -->
+   
     <h2 class="section-title text-center mb-5" style="font-size: 3.5rem;">Nuestro Equipo 🐶</h2>
     <div class="row text-center g-4">
-        <!-- Laura -->
+       
         <div class="col-md-4">
             <div class="card p-4">
                 <div class="badge">BOSS</div>
@@ -35,7 +35,7 @@
                 <p class="text-muted fw-bold">Fundadora</p>
             </div>
         </div>
-        <!-- Javier -->
+       
         <div class="col-md-4">
             <div class="card p-4">
                 <div class="badge">CHEF</div>
@@ -43,7 +43,7 @@
                 <p class="text-muted fw-bold">Especialista en Nutrición</p>
             </div>
         </div>
-        <!-- Milo -->
+        
         <div class="col-md-4">
             <div class="card p-4 border-primary" style="border-width: 4px;">
                 <div class="badge" style="background: var(--brand-pink); color: white;">PRO</div>

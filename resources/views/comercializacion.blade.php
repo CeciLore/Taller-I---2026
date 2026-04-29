@@ -13,7 +13,7 @@
     
 
     <div class="row">
-        <!-- Envíos -->
+
         <div class="col-md-6 mb-4">
             <div class="card border-success">
                 <div class="card-body" style="background: linear-gradient(135deg, #96e6fa, #bd5ef8); border-radius: 10px;">
@@ -27,7 +27,6 @@
             </div>
         </div>
 
-        <!-- Formas de Pago -->
         <div class="col-md-6 mb-4">
             <div class="card border-warning">
                 <div class="card-body" style="background: linear-gradient(135deg, #96e6fa, #bd5ef8); border-radius: 10px;">
@@ -43,7 +42,6 @@
         </div>
     </div>
 
-    <!-- Información adicional -->
     <div class="alert alert-info mt-5 border-0 shadow-sm" role="alert">
         <strong>¿Cambios o devoluciones?</strong> Tenés 30 días corridos desde que recibís tu compra para solicitar un cambio sin cargo por fallas de fábrica.
     </div>

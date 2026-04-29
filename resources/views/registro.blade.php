@@ -23,8 +23,8 @@
                             <span class="input-group-text icon-register-box">
                                 <i class="bi bi-person-fill text-muted"></i>
                             </span>
-                            <input type="text" name="name" class="form-control input-register-right" id="name" placeholder="Ej: Ana López" required pattern=".*\S.*">
-                            <div class="invalid-feedback">El nombre no puede estar vacío ni ser solo espacios.</div>
+                            <input type="text" name="name" class="form-control input-register-right" id="name" placeholder="Ej: Ana López" required pattern="^[^.]+$" oninput="this.value = this.value.replace(/\./g, '');">
+                            <div class="invalid-feedback">El nombre no puede contener puntos.</div>
                         </div>
                     </div>
 
@@ -34,8 +34,8 @@
                             <span class="input-group-text icon-register-box">
                                 <i class="bi bi-envelope-fill text-muted"></i>
                             </span>
-                            <input type="email" name="email" class="form-control input-register-right" id="email" placeholder="tu@ejemplo.com" required>
-                            <div class="invalid-feedback">Necesitamos un email válido.</div>
+                            <input type="email" name="email" class="form-control input-register-right" id="email" placeholder="tu@ejemplo.com" required oninput="this.value = this.value.replace(/\.{2,}/g, '.');">
+                            <div class="invalid-feedback">Ingresa un email válido (sin puntos seguidos).</div>
                         </div>
                     </div>
 
@@ -45,8 +45,8 @@
                             <span class="input-group-text icon-register-box">
                                 <i class="bi bi-lock-fill text-muted"></i>
                             </span>
-                            <input type="password" name="password" id="password" class="form-control input-register-right" placeholder="••••••••" required pattern=".*\S.*">
-                            <div class="invalid-feedback">La contraseña es obligatoria (sin espacios vacíos).</div>
+                            <input type="password" name="password" id="password" class="form-control input-register-right" placeholder="••••••••" required pattern="^[^.]+$" oninput="this.value = this.value.replace(/\./g, '');">
+                            <div class="invalid-feedback">La contraseña no puede contener puntos.</div>
                         </div>
                     </div>
 
@@ -56,8 +56,8 @@
                             <span class="input-group-text icon-register-box">
                                 <i class="bi bi-shield-lock-fill text-muted"></i>
                             </span>
-                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-register-right" placeholder="••••••••" required pattern=".*\S.*">
-                            <div class="invalid-feedback" id="confirmFeedback">Las contraseñas deben coincidir y no ser solo espacios.</div>
+                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-register-right" placeholder="••••••••" required oninput="this.value = this.value.replace(/\./g, '');">
+                            <div class="invalid-feedback" id="confirmFeedback">Las contraseñas deben coincidir y no tener puntos.</div>
                         </div>
                     </div>
 
@@ -82,24 +82,36 @@
         'use strict'
         const form = document.getElementById('formRegistro');
         const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
         const passInput = document.getElementById('password');
         const confirmInput = document.getElementById('password_confirmation');
 
         form.addEventListener('submit', function (event) {
             let isValid = true;
             const isEmptyOrSpaces = (input) => input.value.trim().length === 0;
+            const hasDots = (input) => input.value.includes('.');
+            const hasDoubleDots = (input) => /\.{2,}/.test(input.value);
 
-            if (isEmptyOrSpaces(nameInput)) {
+           
+            if (isEmptyOrSpaces(nameInput) || hasDots(nameInput)) {
                 nameInput.setCustomValidity("Invalido");
                 isValid = false;
             } else { nameInput.setCustomValidity(""); }
 
-            if (isEmptyOrSpaces(passInput)) {
+            
+            if (hasDoubleDots(emailInput)) {
+                emailInput.setCustomValidity("Invalido");
+                isValid = false;
+            } else { emailInput.setCustomValidity(""); }
+
+           
+            if (isEmptyOrSpaces(passInput) || hasDots(passInput)) {
                 passInput.setCustomValidity("Invalido");
                 isValid = false;
             } else { passInput.setCustomValidity(""); }
 
-            if (isEmptyOrSpaces(confirmInput) || passInput.value !== confirmInput.value) {
+        
+            if (passInput.value !== confirmInput.value || hasDots(confirmInput)) {
                 confirmInput.setCustomValidity("Invalido");
                 isValid = false;
             } else { confirmInput.setCustomValidity(""); }
@@ -124,7 +136,7 @@
             form.classList.add('was-validated');
         }, false);
 
-        [nameInput, passInput, confirmInput].forEach(input => {
+        [nameInput, emailInput, passInput, confirmInput].forEach(input => {
             input.addEventListener('input', () => input.setCustomValidity(""));
         });
     })();

@@ -4,18 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-   <!-- 1. Bootstrap Primero -->
 <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
-<!-- 2. Iconos -->
+
 <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/font/bootstrap-icons.css') }}">
-<!-- 3. TU CSS AL FINAL (Para que mande sobre Bootstrap) -->
+
 <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/myStyle.css') }}">
 
 </head>
 
 <body>
 
-    <!-- NAVBAR MEJORADA -->
+   
     <header class="navbar navbar-expand-lg sticky-top bg-white shadow-sm" style="padding: 0.4rem 1%;">
     <div class="container-fluid"> 
         <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
@@ -48,8 +47,12 @@
                     <a class="nav-link px-2 {{ Request::is('consultas') ? 'active' : '' }}" href="{{ url('/consultas') }}">Consultas</a>
                 </li>
 
-                <li class="nav-item ms-lg-2">
-                    <a class="nav-link fw-bold px-2" href="{{ url('/login') }}" style="color: var(--brand-purple);">Login</a>
+                <li class="nav-item">
+                    <a class="btn btn-dark text-white fw-bold ms-lg-1" 
+                       href="{{ url('/login') }}" 
+                       style="border-radius: 8px; font-size: 0.8rem; padding: 4px 12px;">
+                       login
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-dark text-white fw-bold ms-lg-1" 
@@ -63,12 +66,12 @@
     </div>
 </header>
 
-    <!-- CONTENIDO DINÁMICO -->
+
     <main>
         @yield('content')
     </main>
 
-    <!-- FOOTER ÚNICO -->
+  
     <footer class="custom-footer">
     <div class="container text-center">
         <h2 class="footer-title section-title">Picky Petshop</h2>
@@ -99,7 +102,7 @@
     </div>
 </footer>
 
-    <!-- Bootstrap JS Local -->
+
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 </body>
 </html>

@@ -28,7 +28,8 @@
             
             <div class="col-lg-7">
                 <form action="{{ url('/contacto') }}" method="POST" id="formContacto" class="contact-form p-4 p-md-5 bg-white shadow-lg needs-validation" novalidate style="border-radius: 30px; border: 4px solid #000; box-shadow: 15px 15px 0px #000 !important;">
-                    @csrf <h3 class="fw-bold text-dark mb-4 text-center">CUESTIONARIO</h3>
+                    @csrf 
+                    <h3 class="fw-bold text-dark mb-4 text-center">CUESTIONARIO</h3>
                     
                     <div class="mb-3">
                         <label class="fw-bold mb-2 text-dark">NOMBRE COMPLETO</label>
@@ -44,8 +45,15 @@
 
                     <div class="mb-3">
                         <label class="fw-bold mb-2 text-dark">TELÉFONO / CELULAR</label>
-                        <input type="tel" name="telefono" class="form-control border-2 shadow-none" placeholder="Ej: +54 379 4000000" required style="border-color: #000; height: 50px;">
-                        <div class="invalid-feedback fw-bold">El teléfono es obligatorio.</div>
+                        <input type="text" 
+                            name="telefono" 
+                            class="form-control border-2 shadow-none" 
+                            placeholder="Ej: 3794000000" 
+                            required 
+                            style="border-color: #000; height: 50px;"
+                            pattern="[0-9]+" 
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                        <div class="invalid-feedback fw-bold">El teléfono debe contener solo números.</div>
                     </div>
 
                     <div class="mb-3">
@@ -61,8 +69,8 @@
 
                     <div class="mb-3">
                         <label class="fw-bold mb-2 text-dark">MENSAJE PARA LA EMPRESA</label>
-                        <textarea name="mensaje" class="form-control border-2 shadow-none" rows="4" placeholder="Escribe aquí tu mensaje detallado..." required style="border-color: #000;"></textarea>
-                        <div class="invalid-feedback fw-bold">No olvides escribir tu consulta.</div>
+                        <textarea name="mensaje" id="mensaje" class="form-control border-2 shadow-none" rows="4" placeholder="Escribe aquí tu mensaje detallado..." required style="border-color: #000;"></textarea>
+                        <div class="invalid-feedback fw-bold">El mensaje no puede estar vacío.</div>
                     </div>
                     
                     <button type="submit" id="btnEnviar" class="btn btn-warning btn-lg w-100 py-3 mt-3 fw-bold shadow-none" style="border: 4px solid #000; transition: 0.3s; font-size: 1.2rem;">
@@ -83,17 +91,24 @@
     (function () {
         'use strict'
         var form = document.getElementById('formContacto')
+        var mensajeArea = document.getElementById('mensaje')
 
         form.addEventListener('submit', function (event) {
-            // Si el formulario no es válido, detenemos el envío y mostramos errores
+           
+            if (mensajeArea.value.trim().length === 0) {
+                mensajeArea.setCustomValidity('Invalid');
+            } else {
+                mensajeArea.setCustomValidity('');
+            }
+
             if (!form.checkValidity()) {
                 event.preventDefault()
                 event.stopPropagation()
             } else {
-                // Si es válido, simulamos el envío (lo que ya tenías)
+                
                 event.preventDefault()
                 const btn = document.getElementById('btnEnviar');
-                const mensaje = document.getElementById('mensajeExito');
+                const mensajeExito = document.getElementById('mensajeExito');
 
                 btn.innerHTML = 'ENVIANDO...';
                 btn.disabled = true;
@@ -102,14 +117,21 @@
                     btn.innerHTML = 'MENSAJE RECIBIDO ✅';
                     btn.style.background = '#2ecc71'; 
                     btn.style.color = 'white';
-                    mensaje.classList.remove('d-none');
+                    mensajeExito.classList.remove('d-none');
                     form.reset();
-                    form.classList.remove('was-validated'); // Limpia los colores de validación
+                    form.classList.remove('was-validated'); 
                 }, 1000);
             }
 
             form.classList.add('was-validated')
         }, false)
+
+        
+        mensajeArea.addEventListener('input', function() {
+            if (this.value.trim().length > 0) {
+                this.setCustomValidity('');
+            }
+        });
     })()
 </script>
 

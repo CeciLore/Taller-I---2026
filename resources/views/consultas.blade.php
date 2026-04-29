@@ -18,9 +18,15 @@
                     @csrf 
                     
                     <div class="mb-3">
-                        <label for="nombre" class="form-label fw-bold">Nombre del humano</label>
-                        <input type="text" class="form-control form-input-custom" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
-                        <div class="invalid-feedback">¡Guau! Necesitamos saber tu nombre.</div>
+                        <label for="nombre" class="form-label fw-bold">Nombre</label>
+                        <input type="text" 
+                            class="form-control form-input-custom" 
+                            id="nombre" 
+                            name="nombre" 
+                            placeholder="Ej: JuanPerez" 
+                            required
+                            oninput="this.value = this.value.replace(/[ .\s]/g, '');">
+                        <div class="invalid-feedback">No se permiten espacios ni puntos en este campo.</div>
                     </div>
 
                     <div class="mb-3">
@@ -42,8 +48,16 @@
 
                     <div class="mb-3">
                         <label for="mensaje" class="form-label fw-bold">¿En qué podemos ayudarte?</label>
-                        <textarea class="form-control form-input-custom" id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu consulta aquí..." required></textarea>
-                        <div class="invalid-feedback">No dejes el mensaje vacío, ¡queremos ayudarte!</div>
+                        <textarea 
+                            class="form-control form-input-custom" 
+                            id="mensaje" 
+                            name="mensaje" 
+                            rows="5" 
+                            placeholder="Escribe tu consulta aquí..." 
+                            required
+                            oninput="validarMensaje(this)"
+                        ></textarea>
+                        <div class="invalid-feedback">No dejes el mensaje vacío ni uses solo espacios, ¡queremos ayudarte!</div>
                     </div>
 
                     <div class="d-grid">
@@ -62,11 +76,24 @@
 </main>
 
 <script>
+    
+    function validarMensaje(input) {
+        if (input.value.trim().length === 0) {
+            input.setCustomValidity("Invalid");
+        } else {
+            input.setCustomValidity("");
+        }
+    }
+
     (function () {
         'use strict'
         const form = document.getElementById('formConsultas');
+        const mensajeInput = document.getElementById('mensaje');
 
         form.addEventListener('submit', function (event) {
+            
+            validarMensaje(mensajeInput);
+
             if (!form.checkValidity()) {
                 event.preventDefault();
                 event.stopPropagation();
