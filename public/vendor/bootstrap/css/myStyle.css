@@ -339,23 +339,23 @@ nav a:hover { color: var(--brand-pink); }
 .social-link {
     display: inline-block;
     margin: 0 10px;
-    transition: transform 0.3s ease; /* Suaviza la animación */
+    transition: transform 0.3s ease; 
     text-decoration: none;
 }
 
 
 .social-img {
-    width: 12px;         /* Tamaño más pequeño y discreto */
+    width: 12px;   
     height: 12px;
     object-fit: contain;
     margin: 0 4px;
-    vertical-align: middle; /* Clave para que se alineen con el texto */
+    vertical-align: middle; 
     display: inline-block;
     transition: transform 0.2s ease;
 }
 
 .social-link:hover .social-img {
-    transform: scale(1.2); /* Un toque de zoom al pasar el mouse */
+    transform: scale(1.2); 
 }
 
 /* --- BOTONES ESTILO PÍLDORA PARA EL MENÚ --- */
@@ -367,31 +367,31 @@ nav a:hover { color: var(--brand-pink); }
 
 /* 2. Estilo base del botón (Píldora) */
 .navbar-nav .nav-link {
-    padding: 10px 25px !important; /* Más ancho para que parezca cápsula */
-    border-radius: 50px !important; /* Bordes totalmente redondeados */
+    padding: 10px 25px !important; 
+    border-radius: 50px !important; 
     font-weight: 900 !important;
     font-size: 0.85rem;
     text-transform: uppercase;
     color: var(--text-dark) !important;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-    border: 2px solid transparent; /* Para que no salte al activarse */
+    border: 2px solid transparent; 
     display: inline-block;
 }
 
 /* 3. BOTÓN ACTIVO: El que se marca al visitar la página */
 .navbar-nav .nav-link.active {
-    background: var(--brand-pink) !important; /* Tu color rosa */
+    background: var(--brand-pink) !important; 
     color: var(--white) !important;
-    border: 2px solid #000 !important; /* Borde negro estilo Pop-Art */
-    box-shadow: 5px 5px 0px #000 !important; /* Sombra sólida */
-    transform: translateY(-3px); /* Se eleva un poco */
+    border: 2px solid #000 !important; 
+    box-shadow: 5px 5px 0px #000 !important; 
+    transform: translateY(-3px); 
 }
 
 /* 4. HOVER: Cuando pasas el mouse por los que no están activos */
 .navbar-nav .nav-link:hover:not(.active) {
-    background: var(--accent-yellow) !important; /* Resalta en amarillo */
+    background: var(--accent-yellow) !important;
     color: #000 !important;
-    transform: scale(1.1) rotate(-2deg); /* Se agranda e inclina un poquito */
+    transform: scale(1.1) rotate(-2deg); 
     box-shadow: 3px 3px 0px #000;
 }
 /* Efecto para los inputs del formulario */
@@ -420,7 +420,7 @@ nav a:hover { color: var(--brand-pink); }
 .perrito-animado {
     display: inline-block;
     font-size: 2rem;
-    animation: moviendoCola 0.5s infinite; /* Movimiento rápido y alegre */
+    animation: moviendoCola 0.5s infinite; 
 }
 /* Animación de latido para la huellita */
 @keyframes huellaLatido {
@@ -438,7 +438,7 @@ nav a:hover { color: var(--brand-pink); }
 }
 
 .term-item:hover {
-    background: rgba(0, 219, 222, 0.1); /* Un toque cian muy suave */
+    background: rgba(0, 219, 222, 0.1);
 }
 
 .term-item:hover i {
@@ -446,5 +446,211 @@ nav a:hover { color: var(--brand-pink); }
     animation: huellaLatido 0.8s infinite;
 }
 
+/* Botón Amarillo Picky */
+.btn-picky-yellow {
+    background-color: #FFC107;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
 
+.btn-picky-yellow:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
 
+/* Paginación activa con el color de marca */
+.pagination .page-link.active {
+    background-color: var(--brand-purple) !important;
+    color: white !important;
+}
+
+.pagination .page-link {
+    cursor: pointer;
+    padding: 10px 25px;
+    font-weight: bold;
+    color: var(--brand-purple);
+}
+
+/* --- VISTA CONSULTAS --- */
+
+.hero-consultas {
+    min-height: 40vh;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-consultas {
+    border-radius: 20px !important;
+}
+
+.title-purple {
+    color: var(--brand-purple); 
+}
+
+.form-input-custom {
+    border: 2px solid #dee2e6 !important;
+    border-radius: 10px !important;
+}
+
+.alert-custom {
+    border-radius: 10px !important;
+}
+
+/* Botón Enviar */
+.btn-submit-consultas {
+    border-radius: 12px !important;
+    border: 2px solid #000 !important;
+    background-color: #ffc107 !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-submit-consultas:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+    background-color: #eab000 !important;
+}
+
+/* Validaciones */
+.was-validated .form-control:invalid, 
+.was-validated .form-select:invalid {
+    border-color: #dc3545 !important;
+}
+
+.was-validated .form-control:valid, 
+.was-validated .form-select:valid {
+    border-color: #198754 !important;
+}
+
+/* --- VISTA LOGIN --- */
+
+.hero-login {
+    min-height: 40vh;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-login {
+    border-radius: 25px !important;
+}
+
+.title-brand {
+    color: var(--brand-purple);
+}
+
+.link-brand {
+    color: var(--brand-purple);
+    text-decoration: none;
+}
+
+/* Inputs y Grupos */
+.icon-login-box {
+    background-color: #ffffff !important;
+    border: 2px solid #dee2e6 !important;
+    border-right: 0 !important;
+    border-radius: 10px 0 0 10px !important;
+}
+
+.input-login-right {
+    border: 2px solid #dee2e6 !important;
+    border-left: 0 !important;
+    border-radius: 0 10px 10px 0 !important;
+}
+
+/* Botón de Ingreso */
+.btn-login-submit {
+    border-radius: 15px !important;
+    border: 2px solid #000 !important;
+    background-color: #ffc107 !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-login-submit:hover {
+    transform: scale(1.02);
+    background-color: #ffca2c !important;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1) !important;
+}
+
+/* Alerta de éxito */
+.alert-login-success {
+    border-radius: 15px !important;
+    border: 2px solid #155724 !important;
+    background-color: #d4edda !important;
+    color: #155724 !important;
+}
+
+/* Validaciones consistentes */
+.was-validated .form-control:invalid {
+    border-color: #dc3545 !important;
+}
+.was-validated .form-control:valid {
+    border-color: #198754 !important;
+}
+
+/* --- VISTA REGISTRO --- */
+
+.hero-register {
+    min-height: 40vh;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-register {
+    border-radius: 25px !important;
+}
+
+/* Iconos y campos de texto */
+.icon-register-box {
+    background-color: #ffffff !important;
+    border: 2px solid #dee2e6 !important;
+    border-right: 0 !important;
+    border-radius: 10px 0 0 10px !important;
+}
+
+.input-register-right {
+    border: 2px solid #dee2e6 !important;
+    border-left: 0 !important;
+    border-radius: 0 10px 10px 0 !important;
+}
+
+/* Botón de Registro */
+.btn-register-submit {
+    border-radius: 15px !important;
+    border: 2px solid #000 !important;
+    background-color: #ffc107 !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-register-submit:hover {
+    transform: scale(1.02);
+    background-color: #ffca2c !important;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1) !important;
+}
+
+/* Alerta de éxito */
+.alert-register-success {
+    border-radius: 15px !important;
+    border: 2px solid #155724 !important;
+    background-color: #d4edda !important;
+    color: #155724 !important;
+}
+
+.img-container {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.img-equipo {
+    width: 100%;
+    height: 200px;          
+    object-fit: cover;      
+    border-radius: 12px;
+}
