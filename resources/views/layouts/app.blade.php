@@ -6,9 +6,10 @@
     
 <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
 
+
 <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/font/bootstrap-icons.css') }}">
 
-<link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/myStyle.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/myStyle.css') }}?v=2">
 
 </head>
 
@@ -64,6 +65,7 @@
             </ul>
         </div>
     </div>
+    
 </header>
 
 
@@ -104,5 +106,10 @@
 
 
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/carrito.js') }}"></script>
+    <script src="{{ asset('js/registro.js') }}"></script>
+    <script src="{{ asset('js/consulta.js') }}"></script>
+    <script src="{{ asset('js/contacto.js') }}"></script>
+    <script src="{{ asset('js/login.js') }}"></script>
 </body>
 </html>

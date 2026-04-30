@@ -23,8 +23,17 @@
                             <span class="input-group-text icon-register-box">
                                 <i class="bi bi-person-fill text-muted"></i>
                             </span>
-                            <input type="text" name="name" class="form-control input-register-right" id="name" placeholder="Ej: Ana López" required pattern="^[^.]+$" oninput="this.value = this.value.replace(/\./g, '');">
-                            <div class="invalid-feedback">El nombre no puede contener puntos.</div>
+                            <input type="text" 
+                                   name="name" 
+                                   class="form-control input-register-right" 
+                                   id="name" 
+                                   placeholder="Ej: Ana López" 
+                                   required 
+                                   pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{5,}$"
+                                   oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '');">
+                            <div class="invalid-feedback">
+                                El nombre debe tener al menos 5 letras y solo puede contener letras.
+                            </div>
                         </div>
                     </div>
 
@@ -34,8 +43,14 @@
                             <span class="input-group-text icon-register-box">
                                 <i class="bi bi-envelope-fill text-muted"></i>
                             </span>
-                            <input type="email" name="email" class="form-control input-register-right" id="email" placeholder="tu@ejemplo.com" required oninput="this.value = this.value.replace(/\.{2,}/g, '.');">
-                            <div class="invalid-feedback">Ingresa un email válido (sin puntos seguidos).</div>
+                            <input type="email" 
+                                   name="email" 
+                                   class="form-control input-register-right" 
+                                   id="email" 
+                                   placeholder="tu@ejemplo.com" 
+                                   required 
+                                   oninput="this.value = this.value.replace(/\.{2,}/g, '.');">
+                            <div class="invalid-feedback">Ingresa un email válido.</div>
                         </div>
                     </div>
 
@@ -45,8 +60,17 @@
                             <span class="input-group-text icon-register-box">
                                 <i class="bi bi-lock-fill text-muted"></i>
                             </span>
-                            <input type="password" name="password" id="password" class="form-control input-register-right" placeholder="••••••••" required pattern="^[^.]+$" oninput="this.value = this.value.replace(/\./g, '');">
-                            <div class="invalid-feedback">La contraseña no puede contener puntos.</div>
+                            <input type="password" 
+                                   name="password" 
+                                   id="password" 
+                                   class="form-control input-register-right" 
+                                   placeholder="••••••••" 
+                                   required 
+                                   pattern="^[^.,\s]+$"
+                                   oninput="this.value = this.value.replace(/[.,\s]/g, '');">
+                            <div class="invalid-feedback">
+                                La contraseña no puede contener puntos, comas ni espacios.
+                            </div>
                         </div>
                     </div>
 
@@ -56,8 +80,17 @@
                             <span class="input-group-text icon-register-box">
                                 <i class="bi bi-shield-lock-fill text-muted"></i>
                             </span>
-                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-register-right" placeholder="••••••••" required oninput="this.value = this.value.replace(/\./g, '');">
-                            <div class="invalid-feedback" id="confirmFeedback">Las contraseñas deben coincidir y no tener puntos.</div>
+                            <input type="password" 
+                                   name="password_confirmation" 
+                                   id="password_confirmation" 
+                                   class="form-control input-register-right" 
+                                   placeholder="••••••••" 
+                                   required 
+                                   pattern="^[^.,\s]+$"
+                                   oninput="this.value = this.value.replace(/[.,\s]/g, '');">
+                            <div class="invalid-feedback" id="confirmFeedback">
+                                Las contraseñas deben coincidir y no tener espacios, puntos ni comas.
+                            </div>
                         </div>
                     </div>
 
@@ -77,68 +110,4 @@
     </div>
 </main>
 
-<script>
-    (function () {
-        'use strict'
-        const form = document.getElementById('formRegistro');
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const passInput = document.getElementById('password');
-        const confirmInput = document.getElementById('password_confirmation');
-
-        form.addEventListener('submit', function (event) {
-            let isValid = true;
-            const isEmptyOrSpaces = (input) => input.value.trim().length === 0;
-            const hasDots = (input) => input.value.includes('.');
-            const hasDoubleDots = (input) => /\.{2,}/.test(input.value);
-
-           
-            if (isEmptyOrSpaces(nameInput) || hasDots(nameInput)) {
-                nameInput.setCustomValidity("Invalido");
-                isValid = false;
-            } else { nameInput.setCustomValidity(""); }
-
-            
-            if (hasDoubleDots(emailInput)) {
-                emailInput.setCustomValidity("Invalido");
-                isValid = false;
-            } else { emailInput.setCustomValidity(""); }
-
-           
-            if (isEmptyOrSpaces(passInput) || hasDots(passInput)) {
-                passInput.setCustomValidity("Invalido");
-                isValid = false;
-            } else { passInput.setCustomValidity(""); }
-
-        
-            if (passInput.value !== confirmInput.value || hasDots(confirmInput)) {
-                confirmInput.setCustomValidity("Invalido");
-                isValid = false;
-            } else { confirmInput.setCustomValidity(""); }
-
-            if (!form.checkValidity() || !isValid) {
-                event.preventDefault();
-                event.stopPropagation();
-            } else {
-                event.preventDefault();
-                const btn = document.getElementById('btnRegistro');
-                btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Procesando...';
-                btn.disabled = true;
-
-                setTimeout(() => {
-                    document.getElementById('alertaExito').classList.remove('d-none');
-                    btn.innerHTML = '¡CUENTA CREADA! ✨';
-                    btn.style.backgroundColor = '#2ecc71';
-                    btn.style.color = 'white';
-                    btn.style.borderColor = '#155724';
-                }, 1500);
-            }
-            form.classList.add('was-validated');
-        }, false);
-
-        [nameInput, emailInput, passInput, confirmInput].forEach(input => {
-            input.addEventListener('input', () => input.setCustomValidity(""));
-        });
-    })();
-</script>
 @endsection

@@ -28,30 +28,51 @@
     <h2 class="section-title text-center mb-5" style="font-size: 3.5rem;">Nuestro Equipo 🐶</h2>
     <div class="row text-center g-4">
        
-        <div class="col-md-4">
-            <div class="card p-4">
-                <div class="badge">BOSS</div>
-                <h3 class="fw-black">Laura Rodríguez</h3>
-                <p class="text-muted fw-bold">Fundadora</p>
+    <div class="col-md-4">
+        <div class="card p-4 h-100 d-flex align-items-center">
+            <div class="badge">BOSS</div>
+
+            <div class="img-container mb-3">
+                <img src="{{ asset('img/jefa.jpg') }}" 
+                     class="img-equipo img-fluid" 
+                     alt="Laura Rodríguez">
             </div>
-        </div>
-       
-        <div class="col-md-4">
-            <div class="card p-4">
-                <div class="badge">CHEF</div>
-                <h3 class="fw-black">Javier Peña</h3>
-                <p class="text-muted fw-bold">Especialista en Nutrición</p>
-            </div>
-        </div>
-        
-        <div class="col-md-4">
-            <div class="card p-4 border-primary" style="border-width: 4px;">
-                <div class="badge" style="background: var(--brand-pink); color: white;">PRO</div>
-                <h3 class="fw-black">Milo</h3>
-                <p class="text-muted fw-bold">Probador de Camas Oficial</p>
-            </div>
+
+            <h3 class="fw-black">Laura Rodríguez</h3>
+            <p class="text-muted fw-bold">Fundadora</p>
         </div>
     </div>
+       
+    <div class="col-md-4">
+        <div class="card p-4 h-100 d-flex align-items-center">
+            <div class="badge">CHEF</div>
+
+            <div class="img-container mb-3">
+                <img src="{{ asset('img/especialista.jpg') }}" 
+                     class="img-equipo img-fluid" 
+                     alt="Javier Peña">
+            </div>
+
+            <h3 class="fw-black">Javier Peña</h3>
+            <p class="text-muted fw-bold">Especialista en Nutrición</p>
+        </div>
+    </div>
+        
+    <div class="col-md-4">
+        <div class="card p-4 h-100 d-flex align-items-center">
+            <div class="badge" style="background: var(--brand-pink); color: white;">PRO</div>
+
+            <div class="img-container mb-3">
+                <img src="{{ asset('img/milo.jpg') }}" 
+                     class="img-equipo img-fluid" 
+                     alt="Milo">
+            </div>
+
+            <h3 class="fw-black">Milo</h3>
+            <p class="text-muted fw-bold">Probador de Camas Oficial</p>
+        </div>
+    </div>
+</div>
 </main>
 @endsection
 

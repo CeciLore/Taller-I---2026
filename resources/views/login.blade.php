@@ -16,6 +16,7 @@
                 
                 <form action="{{ url('/login') }}" method="POST" id="formLogin" class="needs-validation" novalidate>
                     @csrf 
+
                     <div class="mb-3">
                         <label for="email" class="form-label fw-bold">Correo Electrónico</label>
                         <div class="input-group">
@@ -45,9 +46,11 @@
                                    name="password" 
                                    placeholder="••••••••" 
                                    required 
-                                   pattern="^[^.]+$"
-                                   oninput="this.value = this.value.replace(/\./g, '');">
-                            <div class="invalid-feedback">La contraseña es obligatoria y no puede contener puntos.</div>
+                                   pattern="^[^\s.,]+$"
+                                   oninput="this.value = this.value.replace(/[.,\s]/g, '');">
+                            <div class="invalid-feedback">
+                                La contraseña no puede contener espacios, puntos ni comas.
+                            </div>
                         </div>
                     </div>
 
@@ -64,7 +67,10 @@
                     <hr class="my-4">
 
                     <div class="text-center">
-                        <p class="mb-0">¿No tienes cuenta? <a href="{{ url('/registro') }}" class="fw-bold link-brand">Regístrate</a></p>
+                        <p class="mb-0">
+                            ¿No tienes cuenta? 
+                            <a href="{{ url('/registro') }}" class="fw-bold link-brand">Regístrate</a>
+                        </p>
                     </div>
 
                     <div id="alertaExito" class="alert alert-login-success mt-4 d-none text-center shadow-sm" role="alert">
@@ -77,53 +83,4 @@
     </div>
 </main>
 
-<script>
-    (function () {
-        'use strict'
-        const form = document.getElementById('formLogin');
-
-        form.addEventListener('submit', function (event) {
-            const passwordInput = document.getElementById('password');
-            const emailInput = document.getElementById('email');
-            
-            
-            const tienePuntos = passwordInput.value.includes('.');
-            const soloEspacios = passwordInput.value.trim().length === 0;
-
-            if (!form.checkValidity() || soloEspacios || tienePuntos) {
-                event.preventDefault();
-                event.stopPropagation();
-                
-                if (tienePuntos) {
-                    passwordInput.setCustomValidity("No se permiten puntos");
-                } else if (soloEspacios) {
-                    passwordInput.setCustomValidity("Invalido");
-                }
-            } else {
-                passwordInput.setCustomValidity("");
-                event.preventDefault();
-                const btn = document.getElementById('btnLogin');
-                const alerta = document.getElementById('alertaExito');
-
-                btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Validando...';
-                btn.disabled = true;
-
-                setTimeout(() => {
-                    alerta.classList.remove('d-none');
-                    btn.innerHTML = '¡BIENVENIDO! ✨';
-                    btn.style.backgroundColor = '#2ecc71';
-                    btn.style.color = 'white';
-                    btn.style.borderColor = '#155724';
-                }, 1500);
-            }
-            form.classList.add('was-validated');
-        }, false);
-
-        document.querySelectorAll('input').forEach(input => {
-            input.addEventListener('input', function() {
-                this.setCustomValidity("");
-            });
-        });
-    })();
-</script>
 @endsection
