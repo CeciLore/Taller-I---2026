@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/font/bootstrap-icons.css') }}">
 
-<link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/myStyle.css') }}?v=2">
+<link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/myStyle.css') }}">
 
 </head>
 
