@@ -2,7 +2,7 @@
     'use strict';
 
     const form = document.getElementById('formConsultas');
-    if (!form) return; // 👈 evita errores en otras páginas
+    if (!form) return;
 
     const mensajeInput = document.getElementById('mensaje');
 

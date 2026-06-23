@@ -1,124 +1,86 @@
-@extends('layouts.app')
-
+@extends('layouts.carrito')
 @section('content')
-
-<!-- HERO -->
-<div class="hero">
-    <div class="hero-content text-center">
-        <h1>Consultas</h1>
-        <span class="slogan d-block mb-4">
-            Estamos aquí para ayudarte a ti y a tu mascota.
-        </span>
-    </div>
-</div>
-
-<!-- CONSULTAS -->
-<main class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
-            <section class="card card-consultas shadow-lg border-0 p-4">
-                <h2 class="text-center mb-4 fw-bold title-purple">
-                    Envíanos un mensaje 🐾
-                </h2>
-                <form action="{{ url('/consultas') }}"
-                      method="POST"
-                      id="formConsultas"
-                      class="needs-validation"
-                      novalidate>
-                    @csrf
-                    <!-- NOMBRE -->
-                    <div class="mb-3">
-                        <label for="nombre"
-                               class="form-label fw-bold">
-                            Nombre
-                        </label>
-                        <input type="text"
-                               class="form-control form-input-custom"
-                               id="nombre"
-                               name="nombre"
-                               placeholder="Ej: Juan Pérez"
-                               required>
-                        <div class="invalid-feedback">
-                            El nombre debe tener al menos 5 caracteres.
-                        </div>
-                    </div>
-                    <!-- EMAIL -->
-                    <div class="mb-3">
-                        <label for="email"
-                               class="form-label fw-bold">
-                            Correo Electrónico
-                        </label>
-                        <input type="email"
-                               class="form-control form-input-custom"
-                               id="email"
-                               name="email"
-                               placeholder="nombre@ejemplo.com"
-                               required>
-                        <div class="invalid-feedback">
-                            Dinos un email válido.
-                        </div>
-                    </div>
-                    <!-- ASUNTO -->
-                    <div class="mb-3">
-                        <label for="asunto"
-                               class="form-label fw-bold">
-                            Asunto
-                        </label>
-                        <select class="form-select form-input-custom"
-                                id="asunto"
-                                name="asunto"
-                                required>
-                            <option value="" selected disabled>
-                                Selecciona una opción
-                            </option>
-                            <option value="pedidos">
-                                Sobre mi pedido
-                            </option>
-                            <option value="productos">
-                                Duda sobre un producto
-                            </option>
-                            <option value="otros">
-                                Otros motivos
-                            </option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Por favor, selecciona un motivo.
-                        </div>
-                    </div>
-                    <!-- MENSAJE -->
-                    <div class="mb-3">
-                        <label for="mensaje"
-                               class="form-label fw-bold">
-                            ¿En qué podemos ayudarte?
-                        </label>
-                        <textarea class="form-control form-input-custom"
-                                  id="mensaje"
-                                  name="mensaje"
-                                  rows="5"
-                                  placeholder="Escribe tu consulta aquí..."
-                                  required></textarea>
-                        <div class="invalid-feedback">
-                            El mensaje no puede estar vacío.
-                        </div>
-                    </div>
-                    <!-- BOTÓN -->
-                    <div class="d-grid">
-                        <button type="submit"
-                                id="btnConsulta"
-                                class="btn btn-submit-consultas btn-lg text-dark py-3 fw-bold shadow">
-                            ENVIAR
-                        </button>
-                    </div>
-                    <!-- ALERTA -->
-                    <div id="alertaExito"
-                         class="alert alert-success mt-3 d-none text-center fw-bold alert-custom"
-                         role="alert">
-                        ¡Consulta enviada!
-                        Nos pondremos en contacto muy pronto.
-                    </div>
-                </form>
-            </section>
+    <div class="hero">
+        <div class="hero-content text-center">
+            <h1>Consultas</h1>
+            <span class="slogan d-block mb-4">
+                Estamos aquí para ayudarte a ti y a tu mascota.
+            </span>
         </div>
     </div>
-</main>
+
+    <main class="container my-5">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        <div class="d-flex justify-content-end mb-4">
+
+            <a href="{{ url('/') }}" class="btn btn-picky-yellow fw-bold">
+
+                <i class="bi bi-house"></i>
+                Inicio
+
+            </a>
+
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <section class="card shadow-lg border-0 p-4">
+                    <h2 class="text-center mb-2">
+                        Centro de Consultas 🐾
+                    </h2>
+                    <form action="{{ route('consultas.store') }}" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">
+                                Motivo de la consulta
+                            </label>
+                            <select class="form-select" name="asunto" required>
+                                <option value="">
+                                    Seleccione una opción
+                                </option>
+                                <option value="Consulta sobre pedido">
+                                    Consulta sobre pedido
+                                </option>
+                                <option value="Consulta sobre producto">
+                                    Consulta sobre producto
+                                </option>
+                                <option value="Disponibilidad de productos">
+                                    Disponibilidad de productos
+                                </option>
+                                <option value="Envíos y entregas">
+                                    Envíos y entregas
+                                </option>
+                                <option value="Cambios y devoluciones">
+                                    Cambios y devoluciones
+                                </option>
+                                <option value="Problema con una compra">
+                                    Problema con una compra
+                                </option>
+                                <option value="Sugerencias o comentarios">
+                                    Sugerencias o comentarios
+                                </option>
+                                <option value="Otro">
+                                    Otro
+                                </option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">
+                                Mensaje
+                            </label>
+                            <textarea name="mensaje" rows="6" class="form-control"
+                                placeholder="Describe tu consulta detalladamente para que podamos ayudarte de la mejor manera posible."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            Enviar consulta
+                        </button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
 @endsection

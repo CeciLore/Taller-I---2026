@@ -1,52 +1,85 @@
-document.addEventListener('DOMContentLoaded', function () {
+(function () {
+
+    'use strict';
 
     const form = document.getElementById('formLogin');
 
+    if (!form) return;
+
+    const emailInput = document.getElementById('email');
+    const passInput = document.getElementById('password');
+
     form.addEventListener('submit', function (event) {
 
-        const passwordInput = document.getElementById('password');
-        const emailInput = document.getElementById('email');
+        let isValid = true;
 
-        const tienePuntos = passwordInput.value.includes('.');
-        const soloEspacios = passwordInput.value.trim().length === 0;
+        const isEmptyOrSpaces = (input) =>
+            input.value.trim().length === 0;
 
-        if (!form.checkValidity() || soloEspacios || tienePuntos) {
+        const hasDots = (input) =>
+            input.value.includes('.');
+
+        const hasDoubleDots = (input) =>
+            /\.{2,}/.test(input.value);
+
+        if (
+            isEmptyOrSpaces(emailInput) ||
+            hasDoubleDots(emailInput)
+        ) {
+
+            emailInput.setCustomValidity("Inválido");
+            isValid = false;
+
+        } else {
+
+            emailInput.setCustomValidity("");
+
+        }
+
+        if (
+            isEmptyOrSpaces(passInput) ||
+            hasDots(passInput)
+        ) {
+
+            passInput.setCustomValidity("Inválido");
+            isValid = false;
+
+        } else {
+
+            passInput.setCustomValidity("");
+
+        }
+
+        if (!form.checkValidity() || !isValid) {
+
             event.preventDefault();
             event.stopPropagation();
 
-            if (tienePuntos) {
-                passwordInput.setCustomValidity("No se permiten puntos");
-            } else if (soloEspacios) {
-                passwordInput.setCustomValidity("Inválido");
-            }
-
         } else {
-            passwordInput.setCustomValidity("");
-            event.preventDefault();
 
             const btn = document.getElementById('btnLogin');
-            const alerta = document.getElementById('alertaExito');
 
-            btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Validando...';
+            btn.innerHTML =
+                '<span class="spinner-border spinner-border-sm"></span> Validando...';
+
             btn.disabled = true;
 
-            setTimeout(() => {
-                alerta.classList.remove('d-none');
-                btn.innerHTML = '¡BIENVENIDO! ✨';
-                btn.style.backgroundColor = '#2ecc71';
-                btn.style.color = 'white';
-                btn.style.borderColor = '#155724';
-            }, 1500);
         }
 
         form.classList.add('was-validated');
 
     });
 
-    document.querySelectorAll('input').forEach(input => {
-        input.addEventListener('input', function () {
-            this.setCustomValidity("");
-        });
-    });
 
-});
+    [emailInput, passInput]
+        .forEach(input => {
+
+            input.addEventListener('input', () => {
+
+                input.setCustomValidity("");
+
+            });
+
+        });
+
+})();
