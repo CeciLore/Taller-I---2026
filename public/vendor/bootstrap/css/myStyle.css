@@ -1,6 +1,5 @@
-/* 1. CONFIGURACIÓN DE MARCA Y VARIABLES */
 :root {
-    --primary-gradient: linear-gradient(135deg, #FF0080, #FF8C00); 
+    --primary-gradient: linear-gradient(135deg, #FF0080, #FF8C00);
     --secondary-gradient: linear-gradient(135deg, #00DBDE, #FC00FF);
     --brand-pink: #FF0080;
     --brand-orange: #FF8C00;
@@ -32,13 +31,13 @@ body {
     overflow-x: hidden;
 }
 
-h1, .section-title {
+h1,
+.section-title {
     font-family: 'PickyTitle', cursive;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
 
-/* 2. HEADER GLASSMORPHISM */
 header {
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
@@ -57,9 +56,15 @@ header {
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.logo-img:hover { transform: rotate(-5deg) scale(1.1); }
+.logo-img:hover {
+    transform: rotate(-5deg) scale(1.1);
+}
 
-nav ul { display: flex; list-style: none; gap: 2rem; }
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
 
 nav a {
     text-decoration: none;
@@ -70,20 +75,19 @@ nav a {
     transition: 0.3s;
 }
 
-nav a:hover { color: var(--brand-pink); }
+nav a:hover {
+    color: var(--brand-pink);
+}
 
-/* 3. Eslogan */
 .hero {
     min-height: 50vh;
 
     background: var(--secondary-gradient);
 
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        100% 90%,
-        0% 100%
-    );
+    clip-path: polygon(0 0,
+            100% 0,
+            100% 90%,
+            0% 100%);
 
     display: flex;
     align-items: center;
@@ -92,13 +96,28 @@ nav a:hover { color: var(--brand-pink); }
     padding: 60px 20px;
 }
 
-.hero-content { animation: bounceIn 1.2s ease-out; }
+.hero-content {
+    animation: bounceIn 1.2s ease-out;
+}
 
 @keyframes bounceIn {
-    0% { transform: scale(0.3); opacity: 0; }
-    50% { transform: scale(1.05); opacity: 1; }
-    70% { transform: scale(0.9); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .hero h1 {
@@ -119,8 +138,9 @@ nav a:hover { color: var(--brand-pink); }
     box-shadow: 6px 6px 0px #000;
 }
 
-/* 4. PRODUCT CARDS & VIDEO */
-#productos { padding: 80px 5%; }
+#productos {
+    padding: 80px 5%;
+}
 
 .grid-productos {
     display: grid;
@@ -170,7 +190,6 @@ nav a:hover { color: var(--brand-pink); }
     margin: 1rem 0;
 }
 
-/* Video */
 .community-title {
     font-family: 'PickyTitle', cursive;
     letter-spacing: 2px;
@@ -185,7 +204,7 @@ nav a:hover { color: var(--brand-pink); }
 
     border: 8px solid rgba(255, 255, 255, 0.3);
 
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 
     transition: transform 0.5s ease;
 }
@@ -201,15 +220,17 @@ nav a:hover { color: var(--brand-pink); }
     display: block;
 }
 
-/* 5. BOTONES ESTILO STICKER */
-.btn-primary, .btn-submit, .btn-add {
+.btn-primary,
+.btn-submit,
+.btn-add {
     font-weight: 900;
     border: none;
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btn-primary, .btn-submit {
+.btn-primary,
+.btn-submit {
     background: var(--accent-yellow);
     color: #000;
     padding: 15px 35px;
@@ -219,13 +240,15 @@ nav a:hover { color: var(--brand-pink); }
     display: inline-block;
 }
 
-.btn-primary:hover, .btn-submit:hover {
+.btn-primary:hover,
+.btn-submit:hover {
     transform: translate(-2px, -2px);
     box-shadow: 8px 8px 0px #000;
     letter-spacing: 1px;
 }
 
-.btn-primary:active, .btn-submit:active {
+.btn-primary:active,
+.btn-submit:active {
     transform: translate(4px, 4px);
     box-shadow: 0px 0px 0px #000;
 }
@@ -237,9 +260,11 @@ nav a:hover { color: var(--brand-pink); }
     border-radius: 15px;
 }
 
-.btn-add:hover { background: var(--brand-purple); color: white; }
+.btn-add:hover {
+    background: var(--brand-purple);
+    color: white;
+}
 
-/* 6. FORMULARIO & VALIDACIONES */
 #contacto {
     background: var(--brand-purple);
     padding: 120px 5% 100px;
@@ -254,12 +279,13 @@ nav a:hover { color: var(--brand-pink); }
     display: flex;
     flex-direction: column;
     gap: 20px;
-    box-shadow: 15px 15px 0px rgba(0,0,0,0.2);
+    box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.2);
     max-width: 600px;
     margin: 0 auto;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
     padding: 15px;
     border: 2px solid #eee;
     border-radius: 12px;
@@ -268,18 +294,20 @@ nav a:hover { color: var(--brand-pink); }
     transition: 0.3s;
 }
 
-.contact-form input:focus { border-color: var(--brand-cyan); }
+.contact-form input:focus {
+    border-color: var(--brand-cyan);
+}
 
-/* Validaciones Visuales */
-.contact-form input:valid, .contact-form textarea:valid {
+.contact-form input:valid,
+.contact-form textarea:valid {
     border-left: 6px solid #2ecc71 !important;
 }
 
-.contact-form input:focus:invalid, .contact-form textarea:focus:invalid {
+.contact-form input:focus:invalid,
+.contact-form textarea:focus:invalid {
     border-left: 6px solid #e74c3c !important;
 }
 
-/* 7. FOOTER POP ART */
 .custom-footer {
     background-color: #111;
     color: var(--white);
@@ -314,7 +342,7 @@ nav a:hover { color: var(--brand-pink); }
     border: 3px solid var(--white);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-decoration: none;
-    box-shadow: 5px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
 .social-link:hover {
@@ -324,7 +352,9 @@ nav a:hover { color: var(--brand-pink); }
     box-shadow: 8px 8px 0px #000;
 }
 
-.social-link:hover .bi-whatsapp { color: #25D366; }
+.social-link:hover .bi-whatsapp {
+    color: #25D366;
+}
 
 .custom-hr {
     border: none;
@@ -336,7 +366,6 @@ nav a:hover { color: var(--brand-pink); }
     opacity: 1;
 }
 
-/* 8. BOOTSTRAP OVERRIDES & MOBILE */
 .navbar-toggler {
     border: none;
     padding: 10px;
@@ -345,7 +374,9 @@ nav a:hover { color: var(--brand-pink); }
     box-shadow: 0 4px 10px rgba(255, 0, 128, 0.3);
 }
 
-.navbar-toggler-icon { filter: brightness(0) invert(1); }
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+}
 
 @media (max-width: 991px) {
     .navbar-collapse {
@@ -359,72 +390,75 @@ nav a:hover { color: var(--brand-pink); }
 }
 
 @media (max-width: 768px) {
-    nav ul { display: none; }
-    .hero h1 { font-size: 2.5rem; }
-    .hero { clip-path: none; border-radius: 0 0 40px 40px; }
+    nav ul {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero {
+        clip-path: none;
+        border-radius: 0 0 40px 40px;
+    }
 }
 
-/* Contenedor de los links */
 .social-link {
     display: inline-block;
     margin: 0 10px;
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
     text-decoration: none;
 }
 
 
 .social-img {
-    width: 12px;   
+    width: 12px;
     height: 12px;
     object-fit: contain;
     margin: 0 4px;
-    vertical-align: middle; 
+    vertical-align: middle;
     display: inline-block;
     transition: transform 0.2s ease;
 }
 
 .social-link:hover .social-img {
-    transform: scale(1.2); 
+    transform: scale(1.2);
 }
 
-/* --- BOTONES ESTILO PÍLDORA PARA EL MENÚ --- */
-
-/* 1. Espaciado entre los botones del menú */
 .navbar-nav .nav-item {
-    margin: 0 8px; 
+    margin: 0 8px;
 }
 
-/* 2. Estilo base del botón (Píldora) */
 .navbar-nav .nav-link {
-    padding: 10px 25px !important; 
-    border-radius: 50px !important; 
+    padding: 10px 25px !important;
+    border-radius: 50px !important;
     font-weight: 900 !important;
     font-size: 0.85rem;
     text-transform: uppercase;
     color: var(--text-dark) !important;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-    border: 2px solid transparent; 
+    border: 2px solid transparent;
     display: inline-block;
 }
 
-/* 3. BOTÓN ACTIVO: El que se marca al visitar la página */
 .navbar-nav .nav-link.active {
-    background: var(--brand-pink) !important; 
+    background: var(--brand-pink) !important;
     color: var(--white) !important;
-    border: 2px solid #000 !important; 
-    box-shadow: 5px 5px 0px #000 !important; 
-    transform: translateY(-3px); 
+    border: 2px solid #000 !important;
+    box-shadow: 5px 5px 0px #000 !important;
+    transform: translateY(-3px);
 }
 
-/* 4. HOVER: Cuando pasas el mouse por los que no están activos */
 .navbar-nav .nav-link:hover:not(.active) {
     background: var(--accent-yellow) !important;
     color: #000 !important;
-    transform: scale(1.1) rotate(-2deg); 
+    transform: scale(1.1) rotate(-2deg);
     box-shadow: 3px 3px 0px #000;
 }
-/* Efecto para los inputs del formulario */
-.contact-form input, .contact-form textarea {
+
+.contact-form input,
+.contact-form textarea {
     border: 3px solid #eee !important;
     border-radius: 15px !important;
     padding: 12px !important;
@@ -437,38 +471,55 @@ nav a:hover { color: var(--brand-pink); }
     outline: none;
 }
 
-.text-pink { color: var(--brand-pink); }
-.text-accent-yellow { color: var(--accent-yellow); }
+.text-pink {
+    color: var(--brand-pink);
+}
+
+.text-accent-yellow {
+    color: var(--accent-yellow);
+}
+
 /* Animación de perrito moviendo la cola/saltando */
 @keyframes moviendoCola {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-5px) rotate(-5deg); }
-    75% { transform: translateY(-5px) rotate(5deg); }
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-5px) rotate(-5deg);
+    }
+
+    75% {
+        transform: translateY(-5px) rotate(5deg);
+    }
 }
 
 .perrito-animado {
     display: inline-block;
     font-size: 2rem;
-    animation: moviendoCola 0.5s infinite; 
-}
-/* Animación de latido para la huellita */
-@keyframes huellaLatido {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.3); color: var(--brand-pink); }
-    100% { transform: scale(1); }
+    animation: moviendoCola 0.5s infinite;
 }
 
-/* =========================================
-   SECCIÓN LEGAL
-========================================= */
+@keyframes huellaLatido {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+        color: var(--brand-pink);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
 
 .legal-section {
     background: #f8f9fa;
 }
-
-/* =========================================
-   CARD LEGAL
-========================================= */
 
 .legal-card {
     border-radius: 40px;
@@ -478,13 +529,8 @@ nav a:hover { color: var(--brand-pink); }
     border-bottom: 5px solid #000;
 
     box-shadow:
-        15px 15px 0px rgba(0,0,0,0.05) !important;
+        15px 15px 0px rgba(0, 0, 0, 0.05) !important;
 }
-
-/* Vista de terminos */
-/* =========================================
-   TÍTULO
-========================================= */
 
 .legal-title {
     color: var(--brand-purple);
@@ -492,10 +538,6 @@ nav a:hover { color: var(--brand-pink); }
     text-shadow:
         2px 2px 0px var(--brand-cyan);
 }
-
-/* =========================================
-   ITEMS
-========================================= */
 
 .term-item {
     transition: all 0.3s ease;
@@ -505,31 +547,18 @@ nav a:hover { color: var(--brand-pink); }
     transform: translateX(8px);
 }
 
-/* =========================================
-   SUBTÍTULOS
-========================================= */
-
 .term-heading {
     color: var(--brand-pink);
 }
-
-/* =========================================
-   TEXTO
-========================================= */
 
 .term-content p {
     line-height: 1.8;
 }
 
-/* =========================================
-   FOOTER
-========================================= */
-
 .legal-footer {
     font-style: italic;
 }
 
-/* Botón Amarillo Picky */
 .btn-picky-yellow {
     background-color: #FFC107;
     color: #000;
@@ -541,10 +570,9 @@ nav a:hover { color: var(--brand-pink); }
 .btn-picky-yellow:hover {
     background-color: #e0a800;
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Paginación activa con el color de marca */
 .pagination .page-link.active {
     background-color: var(--brand-purple) !important;
     color: white !important;
@@ -556,8 +584,6 @@ nav a:hover { color: var(--brand-pink); }
     font-weight: bold;
     color: var(--brand-purple);
 }
-
-/* --- VISTA CONSULTAS --- */
 
 .hero-consultas {
     min-height: 40vh;
@@ -572,7 +598,7 @@ nav a:hover { color: var(--brand-pink); }
 }
 
 .title-purple {
-    color: var(--brand-purple); 
+    color: var(--brand-purple);
 }
 
 .form-input-custom {
@@ -584,7 +610,6 @@ nav a:hover { color: var(--brand-pink); }
     border-radius: 10px !important;
 }
 
-/* Botón Enviar */
 .btn-submit-consultas {
     border-radius: 12px !important;
     border: 2px solid #000 !important;
@@ -594,26 +619,19 @@ nav a:hover { color: var(--brand-pink); }
 
 .btn-submit-consultas:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
     background-color: #eab000 !important;
 }
 
-/* Validaciones */
-.was-validated .form-control:invalid, 
+.was-validated .form-control:invalid,
 .was-validated .form-select:invalid {
     border-color: #dc3545 !important;
 }
 
-.was-validated .form-control:valid, 
+.was-validated .form-control:valid,
 .was-validated .form-select:valid {
     border-color: #198754 !important;
 }
-
-/* --- VISTA LOGIN --- */
-
-/* =========================================
-   CARD LOGIN
-========================================= */
 
 .card-login {
     border-radius: 30px;
@@ -626,17 +644,9 @@ nav a:hover { color: var(--brand-pink); }
         15px 15px 0px #000 !important;
 }
 
-/* =========================================
-   TITULO
-========================================= */
-
 .title-brand {
     color: var(--brand-purple);
 }
-
-/* =========================================
-   ICONOS INPUT
-========================================= */
 
 .icon-login-box {
     background: #fff;
@@ -648,10 +658,6 @@ nav a:hover { color: var(--brand-pink); }
     border-radius:
         15px 0 0 15px;
 }
-
-/* =========================================
-   INPUTS
-========================================= */
 
 .input-login-right {
     border: 2px solid #000;
@@ -670,16 +676,10 @@ nav a:hover { color: var(--brand-pink); }
     border-color: var(--brand-purple);
 }
 
-/* =========================================
-   BOTÓN LOGIN
-========================================= */
-
 .btn-login-submit {
-    background: linear-gradient(
-        135deg,
-        #dfee0f,
-        hsl(64, 87%, 50%)
-    );
+    background: linear-gradient(135deg,
+            #dfee0f,
+            hsl(64, 87%, 50%));
 
     border: 3px solid #000;
 
@@ -694,10 +694,6 @@ nav a:hover { color: var(--brand-pink); }
     box-shadow:
         6px 6px 0px #000;
 }
-
-/* =========================================
-   LINKS
-========================================= */
 
 .link-brand {
     color: var(--brand-purple);
@@ -717,10 +713,6 @@ nav a:hover { color: var(--brand-pink); }
     text-decoration: underline;
 }
 
-/* =========================================
-   ALERTA
-========================================= */
-
 .alert-login-success {
     background: #2ecc71;
 
@@ -730,11 +722,6 @@ nav a:hover { color: var(--brand-pink); }
 
     border-radius: 18px;
 }
-/* --- VISTA REGISTRO --- */
-
-/* =========================================
-   CARD REGISTRO
-========================================= */
 
 .card-register {
     border-radius: 25px !important;
@@ -746,26 +733,14 @@ nav a:hover { color: var(--brand-pink); }
     transform: translateY(-5px);
 }
 
-/* =========================================
-   TÍTULO
-========================================= */
-
 .title-brand {
     color: var(--brand-purple);
 }
-
-/* =========================================
-   ICONOS INPUTS
-========================================= */
 
 .icon-register-box {
     background: white;
     border-right: none;
 }
-
-/* =========================================
-   INPUTS
-========================================= */
 
 .input-register-right {
     border-left: none;
@@ -775,16 +750,10 @@ nav a:hover { color: var(--brand-pink); }
     box-shadow: none;
 }
 
-/* =========================================
-   BOTÓN REGISTRO
-========================================= */
-
 .btn-register-submit {
-    background: linear-gradient(
-        135deg,
-        #dfee0f,
-        hsl(64, 87%, 50%)
-    );
+    background: linear-gradient(135deg,
+            #dfee0f,
+            hsl(64, 87%, 50%));
     border: none;
     border-radius: 15px;
     transition: all 0.3s ease;
@@ -792,22 +761,13 @@ nav a:hover { color: var(--brand-pink); }
 
 .btn-register-submit:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
-
-/* =========================================
-   ALERTA ÉXITO
-========================================= */
 
 .alert-register-success {
     border-radius: 15px;
     border: none;
 }
-
-
-/* =========================================
-   TÍTULOS
-========================================= */
 
 .section-history-title {
     font-size: 3rem;
@@ -817,10 +777,6 @@ nav a:hover { color: var(--brand-pink); }
     font-size: 3.5rem;
 }
 
-/* =========================================
-   CARDS DEL EQUIPO
-========================================= */
-
 .team-card {
     border-radius: 25px !important;
     transition: all 0.3s ease;
@@ -828,21 +784,13 @@ nav a:hover { color: var(--brand-pink); }
 
 .team-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
-
-/* =========================================
-   BADGE PRO
-========================================= */
 
 .badge-pro {
     background: var(--brand-pink) !important;
     color: white !important;
 }
-
-/* =========================================
-   IMÁGENES DEL EQUIPO
-========================================= */
 
 .img-container {
     width: 100%;
@@ -856,10 +804,6 @@ nav a:hover { color: var(--brand-pink); }
     border-radius: 12px;
 }
 
-/* =========================================
-   PRODUCTOS
-========================================= */
-
 .product-card {
     border-radius: 15px !important;
     transition: all 0.3s ease;
@@ -867,17 +811,31 @@ nav a:hover { color: var(--brand-pink); }
 
 .product-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.12) !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12) !important;
+}
+
+.product-image-container {
+    height: 250px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.product-image {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    height: auto !important;
 }
 
 .product-img {
-    height: 250px;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
 }
-
-/* =========================================
-   PAGINACIÓN
-========================================= */
 
 .page-left {
     border-radius: 15px 0 0 15px !important;
@@ -904,8 +862,6 @@ nav a:hover { color: var(--brand-pink); }
     color: white !important;
 }
 
-/* Vista terminos*/
-
 .info-card {
     border-radius: 25px !important;
     overflow: hidden;
@@ -914,45 +870,29 @@ nav a:hover { color: var(--brand-pink); }
 
 .info-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* =========================================
-   BODY CARD
-========================================= */
-
 .info-card-body {
-    background: linear-gradient(
-        135deg,
-        #96e6fa,
-        #bd5ef8
-    );
+    background: linear-gradient(135deg,
+            #96e6fa,
+            #bd5ef8);
 
     border-radius: 10px;
 
     padding: 30px;
 }
 
-/* =========================================
-   ITEMS
-========================================= */
-
 .info-item {
     margin-bottom: 18px;
     line-height: 1.7;
 }
-
-/* =========================================
-   ALERTA
-========================================= */
 
 .purchase-alert {
     border-radius: 18px;
     padding: 20px;
     font-size: 1rem;
 }
-
-/* Vista contacto */
 
 .contact-section {
     background: var(--brand-purple);
@@ -965,10 +905,6 @@ nav a:hover { color: var(--brand-pink); }
     z-index: 10;
 }
 
-/* =========================================
-   TÍTULO
-========================================= */
-
 .contact-title {
     text-shadow:
         4px 4px 0px var(--brand-pink);
@@ -980,12 +916,8 @@ nav a:hover { color: var(--brand-pink); }
     font-size: 1.5rem;
 }
 
-/* =========================================
-   INFO BOX
-========================================= */
-
 .contact-info-box {
-    background: rgba(0,0,0,0.25);
+    background: rgba(0, 0, 0, 0.25);
 
     padding: 25px;
 
@@ -995,26 +927,16 @@ nav a:hover { color: var(--brand-pink); }
         5px solid var(--accent-yellow);
 }
 
-/* =========================================
-   LEGAL BOX
-========================================= */
-
 .legal-info-box {
     padding: 25px;
 
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
 
     border-radius: 20px;
 
     border:
         2px dashed var(--brand-pink);
 }
-
-
-
-/* =========================================
-   FORMULARIO
-========================================= */
 
 .contact-form {
     border-radius: 30px;
@@ -1025,10 +947,6 @@ nav a:hover { color: var(--brand-pink); }
         15px 15px 0px #000 !important;
 }
 
-/* =========================================
-   INPUTS
-========================================= */
-
 .contact-input {
     border-color: #000 !important;
 
@@ -1038,10 +956,6 @@ nav a:hover { color: var(--brand-pink); }
 .contact-textarea {
     border-color: #000 !important;
 }
-
-/* =========================================
-   BOTÓN
-========================================= */
 
 .contact-btn {
     border: 4px solid #000;
@@ -1054,10 +968,6 @@ nav a:hover { color: var(--brand-pink); }
 .contact-btn:hover {
     transform: translateY(-4px);
 }
-
-/* =========================================
-   ALERTA ÉXITO
-========================================= */
 
 .success-message {
     background: #2ecc71;
@@ -1074,10 +984,6 @@ nav a:hover { color: var(--brand-pink); }
         5px 5px 0px #000;
 }
 
-/* =========================================
-   MAPA
-========================================= */
-
 .map-container {
     border-radius: 20px;
 
@@ -1090,12 +996,6 @@ nav a:hover { color: var(--brand-pink); }
     border: 0;
 }
 
-/* Vista consultas */
-
-/* =========================================
-   CARD CONSULTAS
-========================================= */
-
 .card-consultas {
     border-radius: 30px;
 
@@ -1107,17 +1007,9 @@ nav a:hover { color: var(--brand-pink); }
         15px 15px 0px #000 !important;
 }
 
-/* =========================================
-   TITULO
-========================================= */
-
 .title-purple {
     color: var(--brand-purple);
 }
-
-/* =========================================
-   INPUTS
-========================================= */
 
 .form-input-custom {
     border: 2px solid #000;
@@ -1137,26 +1029,16 @@ nav a:hover { color: var(--brand-pink); }
     box-shadow: none;
 }
 
-/* =========================================
-   TEXTAREA
-========================================= */
-
 textarea.form-input-custom {
     min-height: 140px;
 
     resize: none;
 }
 
-/* =========================================
-   BOTÓN
-========================================= */
-
 .btn-submit-consultas {
-    background: linear-gradient(
-        135deg,
-        #96e6fa,
-        #bd5ef8
-    );
+    background: linear-gradient(135deg,
+            #96e6fa,
+            #bd5ef8);
 
     border: 3px solid #000;
 
@@ -1172,10 +1054,6 @@ textarea.form-input-custom {
         6px 6px 0px #000;
 }
 
-/* =========================================
-   ALERTA
-========================================= */
-
 .alert-custom {
     background: #2ecc71;
 
@@ -1184,4 +1062,483 @@ textarea.form-input-custom {
     border: 3px solid #000;
 
     border-radius: 18px;
+}
+
+.quantity-control {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    background: #f5f5f5;
+
+    padding: 10px;
+
+    border-radius: 20px;
+
+    border: 3px solid #000;
+}
+
+.qty-btn {
+
+    width: 40px;
+
+    height: 40px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: var(--brand-cyan);
+
+    font-size: 1.3rem;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.qty-btn:hover {
+
+    background: var(--brand-purple);
+
+    color: white;
+
+    transform: scale(1.1);
+}
+
+.qty-number {
+
+    font-size: 1.2rem;
+
+    font-weight: bold;
+}
+
+.btn-remove-cart {
+
+    background: #ff4d4d;
+
+    color: white;
+
+    border: 3px solid #000;
+
+    padding: 10px 20px;
+
+    border-radius: 15px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.btn-remove-cart:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        5px 5px 0px #000;
+}
+
+.cart-summary-card {
+
+    position: sticky;
+
+    top: 120px;
+}
+
+.summary-line {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+
+    font-size: 1.1rem;
+}
+
+.summary-total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 1.7rem;
+
+    font-weight: 900;
+
+    color: var(--brand-pink);
+}
+
+@media (max-width: 768px) {
+
+    .cart-summary-card {
+
+        position: static;
+    }
+}
+
+.product-card {
+    transition: 0.3s;
+    min-height: 420px;
+    border-radius: 18px;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+
+.product-title {
+    min-height: 48px;
+    font-size: 1rem;
+}
+
+.product-description {
+    min-height: 60px;
+    font-size: 0.9rem;
+}
+
+/* Admin imagen producto */
+.table img {
+    border: 2px solid #000;
+}
+
+.cart-section .product-card {
+    min-height: auto;
+    padding: 15px !important;
+}
+
+.cart-section .product-img {
+    height: 110px;
+    border-radius: 15px;
+}
+
+.cart-section .product-title {
+    min-height: auto;
+    font-size: 1rem;
+}
+
+.cart-section .product-description {
+    min-height: auto;
+    margin-bottom: 8px;
+}
+
+.cart-section .price {
+    font-size: 1.2rem;
+}
+
+.user-role-admin {
+
+    background: var(--brand-pink);
+
+    color: white;
+
+    border-radius: 15px;
+
+    padding: 8px 15px;
+
+    font-weight: bold;
+}
+
+.user-role-user {
+
+    background: var(--brand-cyan);
+
+    color: black;
+
+    border-radius: 15px;
+
+    padding: 8px 15px;
+
+    font-weight: bold;
+}
+
+#buscar,
+#rol {
+
+    border: 3px solid #000;
+
+    border-radius: 18px;
+
+    min-height: 55px;
+
+    font-weight: 600;
+}
+
+#buscar:focus,
+#rol:focus {
+
+    border-color: var(--brand-purple);
+
+    box-shadow: 5px 5px 0px var(--brand-purple);
+
+    outline: none;
+}
+
+.card-consultas-admin {
+
+    border: 4px solid #000;
+
+    border-radius: 25px;
+
+    box-shadow: 10px 10px 0px #000;
+}
+
+.table-consultas thead {
+
+    background: linear-gradient(135deg,
+            var(--brand-purple),
+            var(--brand-pink));
+
+    color: white;
+}
+
+.table-consultas tbody tr:hover {
+
+    background: rgba(142, 45, 226, 0.08);
+}
+
+.badge-pendiente {
+
+    background: #ffc107;
+
+    color: #000;
+}
+
+.badge-respondida {
+
+    background: #198754;
+}
+
+.badge-cerrada {
+
+    background: #6c757d;
+}
+
+.btn-ver-consulta {
+
+    border: 2px solid #000;
+
+    border-radius: 12px;
+
+    font-weight: bold;
+
+    transition: .3s;
+}
+
+.btn-ver-consulta:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 4px 4px 0px #000;
+}
+
+.card-consultas-admin {
+
+    border: 4px solid #000 !important;
+
+    border-radius: 25px !important;
+
+    box-shadow:
+        10px 10px 0px #000 !important;
+
+    background: white;
+}
+
+.card-consultas-admin h5 {
+
+    color: var(--brand-purple);
+
+    font-weight: 900;
+}
+
+.card-consultas-admin textarea {
+
+    border: 3px solid #000;
+
+    border-radius: 15px;
+
+    min-height: 180px;
+}
+
+.card-consultas-admin textarea:focus {
+
+    border-color: var(--brand-purple);
+
+    box-shadow:
+        5px 5px 0px var(--brand-purple);
+
+    outline: none;
+}
+
+.btn-success {
+
+    border: 3px solid #000;
+
+    border-radius: 15px;
+
+    font-weight: bold;
+}
+
+.btn-success:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        5px 5px 0px #000;
+}
+
+.btn-secondary {
+
+    border: 3px solid #000;
+
+    border-radius: 15px;
+}
+
+.dashboard-card {
+
+    background: white;
+
+    border: 4px solid #000;
+
+    border-radius: 25px;
+
+    padding: 25px;
+
+    box-shadow:
+        10px 10px 0px #000;
+
+    transition: .3s;
+}
+
+.dashboard-card:hover {
+
+    transform: translateY(-5px);
+}
+
+.dashboard-icon {
+
+    font-size: 2.5rem;
+
+    margin-bottom: 10px;
+}
+
+.dashboard-value {
+
+    font-size: 2rem;
+
+    font-weight: 900;
+}
+
+.dashboard-label {
+
+    font-weight: 700;
+
+    color: #666;
+}
+
+.card-sales {
+    border-left: 12px solid var(--brand-pink);
+}
+
+.card-orders {
+    border-left: 12px solid var(--brand-cyan);
+}
+
+.card-users {
+    border-left: 12px solid var(--brand-purple);
+}
+
+.card-consultas {
+    border-left: 12px solid var(--accent-yellow);
+}
+
+.dashboard-table {
+
+    background: white;
+
+    border: 4px solid #000;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    box-shadow:
+        10px 10px 0px #000;
+}
+
+.dashboard-table .table {
+
+    margin-bottom: 0;
+}
+
+.dashboard-table thead {
+
+    background:
+        linear-gradient(135deg,
+            var(--brand-purple),
+            var(--brand-pink));
+
+    color: white;
+}
+
+.alert-dashboard {
+
+    border: 3px solid #000;
+
+    border-radius: 18px;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.stock-danger {
+
+    background: #ff4d4d;
+
+    color: white;
+
+    padding: 5px 12px;
+
+    border-radius: 12px;
+
+    font-weight: bold;
+}
+
+.admin-product-thumb {
+    width: 50px !important;
+    height: 50px !important;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.estado-texto {
+    font-weight: 700;
+}
+
+.estado-pendiente {
+    color: #f39c12;
+}
+
+.estado-completado {
+    color: #28a745;
+}
+
+.estado-cancelado {
+    color: #dc3545;
+}
+
+.product-card {
+    transition: .3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
 }

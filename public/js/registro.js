@@ -24,7 +24,6 @@
         const hasDoubleDots = (input) =>
             /\.{2,}/.test(input.value);
 
-        // NOMBRE
         if (isEmptyOrSpaces(nameInput) || hasDots(nameInput)) {
 
             nameInput.setCustomValidity("Inválido");
@@ -36,7 +35,6 @@
 
         }
 
-        // EMAIL
         if (hasDoubleDots(emailInput)) {
 
             emailInput.setCustomValidity("Inválido");
@@ -48,7 +46,6 @@
 
         }
 
-        // PASSWORD
         if (isEmptyOrSpaces(passInput) || hasDots(passInput)) {
 
             passInput.setCustomValidity("Inválido");
@@ -60,7 +57,6 @@
 
         }
 
-        // CONFIRMAR PASSWORD
         if (
             passInput.value !== confirmInput.value ||
             hasDots(confirmInput)
@@ -75,7 +71,6 @@
 
         }
 
-        // SI HAY ERRORES → CANCELA
         if (!form.checkValidity() || !isValid) {
 
             event.preventDefault();
@@ -83,7 +78,6 @@
 
         } else {
 
-            // BOTÓN LOADING
             const btn = document.getElementById('btnRegistro');
 
             btn.innerHTML =
@@ -97,7 +91,6 @@
 
     });
 
-    // LIMPIAR ERRORES EN TIEMPO REAL
     [nameInput, emailInput, passInput, confirmInput]
         .forEach(input => {
 

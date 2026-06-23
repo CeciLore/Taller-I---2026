@@ -2,298 +2,222 @@
 
 @section('content')
 
-<div class="hero">
-    <div class="hero-content text-center">
-        <h1>Picky Petshop</h1>
+    <div class="hero">
+        <div class="hero-content text-center">
+            <h1>Picky Petshop</h1>
 
-        <span class="slogan d-block mb-4">
-            Accesorios y alimentos de alta gama para tus mejores amigos.
-        </span>
+            <span class="slogan d-block mb-4">
+                Accesorios y alimentos de alta gama para tus mejores amigos.
+            </span>
 
-        <a href="#productos" class="btn btn-light btn-lg px-5 shadow-sm">
-            ¡VER LO NUEVO!
-        </a>
-    </div>        
-</div>
+            <a href="#productos" class="btn btn-light btn-lg px-5 shadow-sm">
+                ¡VER LO NUEVO!
+            </a>
+        </div>
 
-<main>
-    <section class="community-section container my-5 text-center">
-    <h2 class="community-title mb-4">
-        Nuestra Comunidad 🐾
-    </h2>
-    <div class="video-box ratio ratio-16x9 mx-auto">
-        <video controls>
-            <source src="{{ asset('video/perrito.mp4') }}" type="video/mp4">
-        </video>
     </div>
-    </section>
+
+    <main>
+
+        <section class="community-section container my-5 text-center">
+
+            <h2 class="community-title mb-4">
+                Nuestra Comunidad 🐾
+            </h2>
+
+            <div class="video-box ratio ratio-16x9 mx-auto">
+                <video controls>
+                    <source src="{{ asset('video/perrito.mp4') }}" type="video/mp4">
+                </video>
+            </div>
+
+        </section>
+
 
         <section id="productos" class="container my-5">
 
-        <h2 class="text-center mb-5 fw-bold">
-            Favoritos de la Manada
-        </h2>
+            <h2 class="text-center mb-4 fw-bold">
+                Favoritos de la Manada
+            </h2>
 
-        <div class="tab-content" id="pills-tabContent">
+            <div class="row justify-content-center mb-5">
 
-            <!-- =========================
-                PÁGINA 1
-            ========================== -->
-            <div class="tab-pane fade show active"
-                id="pills-1"
-                role="tabpanel"
-                aria-labelledby="pills-1-tab">
+                <div class="col-md-5 col-lg-4">
 
-                <div class="row g-4 text-center">
+                    <form action="{{ route('home') }}" method="GET">
 
-                    <!-- PRODUCTO -->
-                    <div class="col-12 col-sm-6 col-lg-4 ">
-                        <article class="card product-card h-100 border-0 shadow-sm overflow-hidden">
+                        <select name="categoria" class="form-select shadow-sm" onchange="this.form.submit()">
 
-                            <img src="{{ asset('img/pretal.jpg') }}"
-                                class="card-img-top product-img"
-                                alt="Pretal">
+                            <option value="">
+                                Todas las categorías
+                            </option>
 
-                            <div class="card-body d-flex flex-column">
-                                <h3>Pretal "Neon"</h3>
+                            @foreach($categorias as $categoria)
 
-                                <p class="text-muted flex-grow-1">
-                                    Máxima visibilidad.
-                                </p>
+                                <option value="{{ $categoria->id }}" {{ request('categoria') == $categoria->id ? 'selected' : '' }}>
 
-                                <p class="h4 text-primary mt-2">
-                                    $15.500
-                                </p>
+                                    {{ $categoria->nombre }}
 
-                                <button class="btn btn-picky-yellow btn-sm fw-bold btn-agregar-carrito">
-                                    Agregar al carrito
-                                </button>
-                            </div>
+                                </option>
 
-                        </article>
-                    </div>
+                            @endforeach
 
-                    <!-- PRODUCTO -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="card product-card h-100 border-0 shadow-sm overflow-hidden">
+                        </select>
 
-                            <img src="{{ asset('img/alimentopremium.jpg') }}"
-                                class="card-img-top product-img"
-                                alt="Alimento">
-
-                            <div class="card-body d-flex flex-column">
-                                <h3>Alimento Premium</h3>
-
-                                <p class="text-muted flex-grow-1">
-                                    Energía y salud.
-                                </p>
-
-                                <p class="h4 text-primary mt-2">
-                                    $32.000
-                                </p>
-
-                                <button class="btn btn-picky-yellow btn-sm fw-bold btn-agregar-carrito">
-                                    Agregar al carrito
-                                </button>
-                            </div>
-
-                        </article>
-                    </div>
-
-                    <!-- PRODUCTO -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="card product-card h-100 border-0 shadow-sm overflow-hidden">
-
-                            <img src="{{ asset('img/mordisco.jpg') }}"
-                                class="card-img-top product-img"
-                                alt="Mordillo">
-
-                            <div class="card-body d-flex flex-column">
-                                <h3>Mordillo Dental</h3>
-
-                                <p class="text-muted flex-grow-1">
-                                    Diversión duradera.
-                                </p>
-
-                                <p class="h4 text-primary mt-2">
-                                    $4.500
-                                </p>
-
-                                <button class="btn btn-picky-yellow btn-sm fw-bold btn-agregar-carrito">
-                                    Agregar al carrito
-                                </button>
-                            </div>
-
-                        </article>
-                    </div>
-
-                    <!-- PRODUCTO -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="card product-card h-100 border-0 shadow-sm overflow-hidden">
-
-                            <img src="{{ asset('img/camadog.jpg') }}"
-                                class="card-img-top product-img"
-                                alt="Cama">
-
-                            <div class="card-body d-flex flex-column">
-                                <h3>Cama Confort</h3>
-
-                                <p class="text-muted flex-grow-1">
-                                    El mejor descanso.
-                                </p>
-
-                                <p class="h4 text-primary mt-2">
-                                    $21.800
-                                </p>
-
-                                <button class="btn btn-picky-yellow btn-sm fw-bold btn-agregar-carrito">
-                                    Agregar al carrito
-                                </button>
-                            </div>
-
-                        </article>
-                    </div>
-
-                    <!-- PRODUCTO -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="card product-card h-100 border-0 shadow-sm overflow-hidden">
-
-                            <img src="{{ asset('img/rascador.jpg') }}"
-                                class="card-img-top product-img"
-                                alt="Rascador">
-
-                            <div class="card-body d-flex flex-column">
-                                <h3>Torre Rascador</h3>
-
-                                <p class="text-muted flex-grow-1">
-                                    Para gatos felices.
-                                </p>
-
-                                <p class="h4 text-primary mt-2">
-                                    $25.600
-                                </p>
-
-                                <button class="btn btn-picky-yellow btn-sm fw-bold btn-agregar-carrito">
-                                    Agregar al carrito
-                                </button>
-                            </div>
-
-                        </article>
-                    </div>
-
-                    <!-- PRODUCTO -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="card product-card h-100 border-0 shadow-sm overflow-hidden">
-
-                            <img src="{{ asset('img/bolsatransporte.jpg') }}"
-                                class="card-img-top product-img"
-                                alt="Transportadora">
-
-                            <div class="card-body d-flex flex-column">
-                                <h3>Bolso de Viaje</h3>
-
-                                <p class="text-muted flex-grow-1">
-                                    Viajes cómodos.
-                                </p>
-
-                                <p class="h4 text-primary mt-2">
-                                    $18.900
-                                </p>
-
-                                <button class="btn btn-picky-yellow btn-sm fw-bold btn-agregar-carrito">
-                                    Agregar al carrito
-                                </button>
-                            </div>
-
-                        </article>
-                    </div>
+                    </form>
 
                 </div>
+
             </div>
 
-            <!-- =========================
-                PÁGINA 2
-            ========================== -->
-            <div class="tab-pane fade"
-                id="pills-2"
-                role="tabpanel"
-                aria-labelledby="pills-2-tab">
+            <div class="row g-4 text-center">
 
-                <div class="row g-4 text-center">
+                @forelse($productos as $producto)
 
-                    <!-- PRODUCTO -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <article class="card product-card h-100 border-0 shadow-sm overflow-hidden">
+                    <div class="col-6 col-md-4 col-lg-4">
 
-                            <img src="{{ asset('img/shampoo.jpg') }}"
-                                class="card-img-top product-img"
-                                alt="Shampoo">
+                        <article class="card product-card h-100 border-0 shadow-sm overflow-hidden" data-bs-toggle="modal"
+                            data-bs-target="#productoModal{{ $producto->id }}" style="cursor:pointer;">
 
-                            <div class="card-body d-flex flex-column">
-                                <h3>Shampoo Pet</h3>
+                            <div class="product-image-container">
 
-                                <p class="text-muted flex-grow-1">
-                                    Pelaje brillante.
+                                <img src="{{ asset('storage/' . $producto->url_imagen) }}" alt="{{ $producto->nombre }}"
+                                    class="product-image">
+
+                            </div>
+
+                            <div class="card-body text-center">
+
+                                <h5 class="fw-bold">
+                                    {{ $producto->nombre }}
+                                </h5>
+
+                                <p class="h5 text-primary fw-bold">
+                                    ${{ number_format($producto->precio, 0, ',', '.') }}
                                 </p>
 
-                                <p class="h4 text-primary mt-2">
-                                    $8.500
-                                </p>
+                                <small class="text-muted">
+                                    Mas detalles
+                                </small>
 
-                                <button class="btn btn-picky-yellow btn-sm fw-bold btn-agregar-carrito">
-                                    Agregar al carrito
-                                </button>
                             </div>
 
                         </article>
+
                     </div>
 
-                </div>
+                    <div class="modal fade" id="productoModal{{ $producto->id }}" tabindex="-1" aria-hidden="true">
+
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+
+                                    <h5 class="modal-title">
+                                        {{ $producto->nombre }}
+                                    </h5>
+
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                    </button>
+
+                                </div>
+
+                                <div class="modal-body">
+
+                                    <div class="row align-items-center">
+
+                                        <div class="col-md-5 text-center">
+
+                                            <img src="{{ asset('storage/' . $producto->url_imagen) }}"
+                                                alt="{{ $producto->nombre }}" class="img-fluid rounded">
+
+                                        </div>
+
+                                        <div class="col-md-7">
+
+                                            <h3 class="fw-bold mb-3">
+                                                {{ $producto->nombre }}
+                                            </h3>
+
+                                            <p class="text-muted">
+                                                {{ $producto->descripcion }}
+                                            </p>
+
+                                            <p class="h4 text-primary fw-bold">
+                                                ${{ number_format($producto->precio, 0, ',', '.') }}
+                                            </p>
+
+                                            <p class="fw-bold">
+                                                Stock disponible:
+                                                {{ $producto->stock }}
+                                            </p>
+
+                                            @auth
+                                                @if(Auth::user()->rol == 'usuario')
+
+                                                    @if($producto->stock > 0)
+
+                                                        <form action="{{ route('carrito.agregar', $producto->id) }}" method="POST"
+                                                            class="form-agregar-carrito">
+
+                                                            @csrf
+
+                                                            <button type="submit" class="btn btn-picky-yellow fw-bold btn-agregar-carrito">
+
+                                                                Agregar al carrito
+
+                                                            </button>
+
+                                                        </form>
+
+                                                    @else
+
+                                                        <button class="btn btn-secondary" disabled>
+
+                                                            Sin stock
+
+                                                        </button>
+
+                                                    @endif
+
+                                                @endif
+                                            @endauth
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                @empty
+
+                    <div class="col-12">
+
+                        <div class="alert alert-warning">
+                            No hay productos disponibles.
+                        </div>
+
+                    </div>
+
+                @endforelse
+
             </div>
 
-        </div>
+            @if($productos->hasPages())
+                <div class="d-flex justify-content-center mt-5">
+                    {{ $productos->links() }}
+                </div>
+            @endif
 
-        <!-- =========================
-            PAGINACIÓN
-        ========================== -->
-        <nav aria-label="Navegación de productos" class="mt-5">
+        </section>
 
-            <ul class="pagination justify-content-center border-0"
-                id="pills-tab"
-                role="tablist">
-
-                <li class="page-item" role="presentation">
-
-                    <button class="page-link active shadow-sm border-0 page-left"
-                            id="pills-1-tab"
-                            data-bs-toggle="pill"
-                            data-bs-target="#pills-1"
-                            type="button"
-                            role="tab">
-                        1
-                    </button>
-
-                </li>
-
-                <li class="page-item" role="presentation">
-
-                    <button class="page-link shadow-sm border-0 page-right"
-                            id="pills-2-tab"
-                            data-bs-toggle="pill"
-                            data-bs-target="#pills-2"
-                            type="button"
-                            role="tab">
-                        2
-                    </button>
-
-                </li>
-
-            </ul>
-
-        </nav>
-
-    </section>
-</main>
-
+    </main>
 
 @endsection
